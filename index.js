@@ -37,6 +37,7 @@ bot.on("message", async message => {
 
   if (message.content === 'Gross.') {
     const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'picard_cringe');
+    console.log(emoji);
     message.reply(emoji)
     // message.reply(`Indubitably.`)
   }
