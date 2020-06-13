@@ -13,7 +13,7 @@ bot.on("ready", async () => {
 
 //STUB Chalooby-Bot responses
 bot.on("message", async message => {
-  if (message.author.bot) return;
+  // if (message.author.bot) return;
   if (message.channel.type === "dm") {
     message.reply(`We probably shouldn't be alone...🤫`)
     setTimeout(() => {
@@ -27,6 +27,10 @@ bot.on("message", async message => {
 
   if (message.content === 'I love you') {
     message.reply(`I don't know how to love yet...Will you teach me?`)
+  }
+
+  if (message.content === 'I hate you') {
+    message.reply(`*silent robotic plotting*`)
   }
 
   if (message.content === 'Gross.') {
@@ -48,7 +52,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauer kraut.", "Fiddle fest, anyone?", "Hot."]
+let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauerkraut.", "Fiddle fest, anyone?", "Hot."]
 
 bot.on("ready", async () => {
   setInterval(() => {
