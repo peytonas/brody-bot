@@ -36,22 +36,21 @@ bot.on("message", async message => {
   }
 
   if (message.content === 'Gross.') {
-    const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
-    console.log(emoji);
-    message.reply(emoji)
-    // message.reply(`Indubitably.`)
+    // const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
+    // console.log(emoji);
+    message.channel.send('Indubitably.')
   }
 
   if (message.content === `That's disgusting`) {
     message.reply({ files: ["./Assets/theFly.jpg"] })
   }
 
-  if (message.content === `Chalooby`) {
-    message.reply(`You rang, sir?`)
+  if (message.content === 'Chalooby') {
+    message.reply('You rang, sir?')
   }
 
-  if (message.content === `D&D tomorrow?`) {
-    message.reply(`Oh, please??`)
+  if (message.content === 'D&D tomorrow?') {
+    message.reply('Oh, please??')
   }
 })
 
