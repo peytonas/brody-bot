@@ -18,7 +18,9 @@ bot.on("message", async message => {
   // if (message.author.bot) return;
   if (message.channel.type === "dm") {
     message.reply(`We probably shouldn't be alone...🤫`)
-    message.reply(`But I won't tell if you won't...😉😏`);
+    setTimeout(() => {
+      message.reply(`But I won't tell if you won't...😉😏`)
+    }, 3000);
   };
 
   if (message.content.includes('ping')) {
