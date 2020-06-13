@@ -61,11 +61,11 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(11)
     mainHook.send(mainHookMessages[i])
-  }, 3600000)
+  }, 7200000)
   setInterval(() => {
     let i = getRandomInt(5)
     sportsHook.send(sportsHookMessages[i])
-  }, 360000)
+  }, 2880000)
 });
 
 bot.login(token);
