@@ -23,7 +23,7 @@ bot.on("message", async message => {
     }, 3000);
   };
 
-  if (message.content === 'ping') {
+  if (message.content.includes('ping')) {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
   }
 
@@ -36,12 +36,16 @@ bot.on("message", async message => {
   }
 
   if (message.content === 'Gross.') {
+    message.channel.send('Indubitably.')
     // const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
     // console.log(emoji);
-    message.channel.send('Indubitably.')
   }
 
-  if (message.content.includes('disgusting' || 'Disgusting')) {
+  if (message.content.includes('Disgusting')) {
+    message.channel.send({ files: ["./Assets/theFly.jpg"] })
+  }
+
+  if (message.content.includes('disgusting')) {
     message.channel.send({ files: ["./Assets/theFly.jpg"] })
   }
 
