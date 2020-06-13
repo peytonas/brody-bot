@@ -7,6 +7,10 @@ const sportsHook = new Discord.WebhookClient('721429549505708083', 'FWE_vCe-pwP4
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 //STUB Chalooby-Bot status
 
 bot.on("ready", async () => {
@@ -16,16 +20,19 @@ bot.on("ready", async () => {
 
 //STUB Chalooby-Bot audio
 
+let ytpl = ['https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', 'https://www.youtube.com/watch?v=fyIcQ1Xl-rs&list=PLxhnpe8pN3TlMilD9JLcwNmjqf2J47cRU', 'https://www.youtube.com/watch?v=fPO76Jlnz6c&list=PLGBuKfnErZlDSR8vN4nse7MI_bQqYvopq', 'https://www.youtube.com/watch?v=kEGuHdKn0Lc&list=PLZKgz45z8N33pvyfu5RmtRSQG5TMo3RC-']
+
 bot.on('message', async message => {
   // Voice only works in guilds, if the message does not come from a guild,
   // we ignore it
   if (!message.guild) return;
 
   if (message.content === `${prefix}` + 'join') {
+    let i = getRandomInt(4)
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
-      connection.play(ytdl('https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', { filter: 'audioonly' }));
+      connection.play(ytdl(ytpl[i], { filter: 'audioonly' }));
     } else {
       message.reply('You need to join a voice channel first!');
     }
@@ -78,10 +85,6 @@ bot.on("message", async message => {
 })
 
 //STUB Webhook messages
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
 
 let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauerkraut.", "Fiddle fest, anyone?", "Hot.", "Bleep Blorp.", "Eat my shorts.", "Cowabunga!", "Heinous.", "Be excellent to each other."]
 let sportsHookMessages = ["Kobe is 🐐", "MJ is 🐐", "Lebron is 🐐", "🦈 GO SHARKS! 🦈", "I love *sports team*, they play *sport* better than all other sports teams."]
