@@ -54,7 +54,7 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(6)
     mainHook.send(mainHookMessages[i])
-  }, 1800000)
+  }, 3600000)
 });
 
 bot.login(token);
