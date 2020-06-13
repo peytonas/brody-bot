@@ -17,14 +17,14 @@ bot.on("ready", async () => {
 bot.on("message", async message => {
   // if (message.author.bot) return;
   if (message.channel.type === "dm") {
-    message.reply(`We probably shouldn't be alone...🤫`)
+    message.channel.send(`We probably shouldn't be alone...🤫`)
     setTimeout(() => {
-      message.reply(`But I won't tell if you won't...😉😏`)
+      message.channel.send(`But I won't tell if you won't...😉😏`)
     }, 3000);
   };
 
   if (message.content === 'ping') {
-    message.reply(`I WON'T DO WHAT YOU TELL ME!`)
+    message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
   }
 
   if (message.content === 'I love you') {
@@ -41,8 +41,8 @@ bot.on("message", async message => {
     message.channel.send('Indubitably.')
   }
 
-  if (message.content === `That's disgusting`) {
-    message.reply({ files: ["./Assets/theFly.jpg"] })
+  if (message.content.includes(`disgusting`)) {
+    message.channel.send({ files: ["./Assets/theFly.jpg"] })
   }
 
   if (message.content === 'Chalooby') {
@@ -50,7 +50,7 @@ bot.on("message", async message => {
   }
 
   if (message.content === 'D&D tomorrow?') {
-    message.reply('Oh, please??')
+    message.channel.send('Oh, please??')
   }
 })
 
