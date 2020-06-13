@@ -28,7 +28,7 @@ bot.on("message", async message => {
   }
 
   if (message.content === 'Gross.') {
-    message.reply(`Indubitably`)
+    message.reply(`Indubitably`, { files: ["./Assets/theFly.jpg"] })
   }
 
   if (message.content === `Chalooby`) {
@@ -40,7 +40,7 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(5)
     mainHook.send(messages[i])
-  }, 300000)
+  }, 1800000)
 });
 
 bot.on("ready", async () => {
