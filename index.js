@@ -65,7 +65,7 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(5)
     sportsHook.send(sportsHookMessages[i])
-  }, 15000)
+  }, 360000)
 });
 
 bot.login(token);
