@@ -23,12 +23,12 @@ bot.on("message", async message => {
   //   }, 3000);
   // };
 
-  if (message.content.includes('ping')) {
+  if (message.content.includes('ping') || message.content.includes('Ping')) {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
   }
 
-  if (message.content.includes('Ping')) {
-    message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
+  if (message.content.includes('Tell me you love me')) {
+    message.reply(`How I feel is unimportant.`)
   }
 
   if (message.content.includes('I love you')) {
@@ -39,21 +39,13 @@ bot.on("message", async message => {
     message.reply(`*silent robotic plotting*`)
   }
 
-  if (message.content.includes('Gross' || 'Lame')) {
+  if (message.content.includes('Gross') || message.content.includes('gross')) {
     message.channel.send('Indubitably.')
     // const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
     // console.log(emoji);
   }
 
-  if (message.content.includes('gross')) {
-    message.channel.send('Indubitably.')
-  }
-
-  if (message.content.includes('Disgusting')) {
-    message.channel.send({ files: ["./Assets/theFly.jpg"] })
-  }
-
-  if (message.content.includes('disgusting')) {
+  if (message.content.includes('Disgusting') || message.content.includes('disgusting')) {
     message.channel.send({ files: ["./Assets/theFly.jpg"] })
   }
 
