@@ -40,7 +40,7 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(5)
     mainHook.send(messages[i])
-  }, 300000)
+  }, 3000)
 });
 
 bot.on("ready", async () => {
