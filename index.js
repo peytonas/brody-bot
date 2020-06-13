@@ -4,12 +4,14 @@ const mainHook = new Discord.WebhookClient('721174919341146235', 'a5_F6O2y6YeMJP
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
+//STUB Chalooby-Bot status
 
-let messages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauer kraut.", "Fiddle fest, anyone?"]
+bot.on("ready", async () => {
+  console.log(`${bot.user.username} is online!`);
+  bot.user.setActivity("Brody...", { type: "WATCHING" });
+});
 
+//STUB Chalooby-Bot responses
 bot.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") {
@@ -34,18 +36,25 @@ bot.on("message", async message => {
   if (message.content === `Chalooby`) {
     message.reply(`You rang, sir?`)
   }
+
+  if (message.content === `D&D tomorrow?`) {
+    message.reply(`Oh, please??`)
+  }
 })
+
+//STUB Webhook messages
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauer kraut.", "Fiddle fest, anyone?", "Hot."]
 
 bot.on("ready", async () => {
   setInterval(() => {
-    let i = getRandomInt(5)
-    mainHook.send(messages[i])
+    let i = getRandomInt(6)
+    mainHook.send(mainHookMessages[i])
   }, 1800000)
-});
-
-bot.on("ready", async () => {
-  console.log(`${bot.user.username} is online!`);
-  bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
 bot.login(token);
