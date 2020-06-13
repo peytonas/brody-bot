@@ -36,10 +36,10 @@ bot.on("message", async message => {
   }
 
   if (message.content === 'Gross.') {
-    const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
-    console.log(emoji);
-    message.react('713518456401690794')
-    message.reply(`Indubitably.`)
+    // const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
+    // console.log(emoji);
+    message.react(':gnome_barfing:')
+    // message.reply(`Indubitably.`)
   }
 
   if (message.content === `That's disgusting`) {
