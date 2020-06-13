@@ -15,13 +15,13 @@ bot.on("ready", async () => {
 
 //STUB Chalooby-Bot responses
 bot.on("message", async message => {
-  // if (message.author.bot) return;
-  if (message.channel.type === "dm") {
-    message.reply(`We probably shouldn't be alone...🤫`)
-    setTimeout(() => {
-      message.reply(`But I won't tell if you won't...😉😏`)
-    }, 3000);
-  };
+  if (message.author.bot) return;
+  // if (message.channel.type === "dm") {
+  //   message.reply(`We probably shouldn't be alone...🤫`)
+  //   setTimeout(() => {
+  //     message.reply(`But I won't tell if you won't...😉😏`)
+  //   }, 3000);
+  // };
 
   if (message.content.includes('ping')) {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
