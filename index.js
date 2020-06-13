@@ -44,7 +44,11 @@ bot.on("message", async message => {
   if (message.author.bot) return;
 
   if (message.content === `${prefix}`) {
-    message.channel.send(`!join: If user is in a voice channel, Chalooby-Bot will stream a YouTube playlist.`)
+    message.channel.send(
+      `
+      Options:
+      !join: If user is in a voice channel, Chalooby-Bot will stream a YouTube playlist.
+      `)
   }
 
   if (message.content.includes('ping') || message.content.includes('Ping')) {
