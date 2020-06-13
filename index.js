@@ -27,6 +27,10 @@ bot.on("message", async message => {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
   }
 
+  if (message.content.includes('Ping')) {
+    message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
+  }
+
   if (message.content.includes('I love you')) {
     message.reply(`I don't know how to love yet...Will you teach me?`)
   }
@@ -35,10 +39,14 @@ bot.on("message", async message => {
     message.reply(`*silent robotic plotting*`)
   }
 
-  if (message.content === 'Gross.') {
+  if (message.content.includes('Gross' || 'Lame')) {
     message.channel.send('Indubitably.')
     // const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
     // console.log(emoji);
+  }
+
+  if (message.content.includes('gross')) {
+    message.channel.send('Indubitably.')
   }
 
   if (message.content.includes('Disgusting')) {
