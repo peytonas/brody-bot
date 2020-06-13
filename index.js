@@ -38,7 +38,7 @@ bot.on("message", async message => {
   if (message.content === 'Gross.') {
     const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
     console.log(emoji);
-    message.channel.send(':gnome_barfing:712468402421104700')
+    message.channel.send(emoji)
     // message.reply(`Indubitably.`)
   }
 
