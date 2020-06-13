@@ -27,11 +27,11 @@ bot.on("message", async message => {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
   }
 
-  if (message.content === 'I love you') {
+  if (message.content.includes('I love you')) {
     message.reply(`I don't know how to love yet...Will you teach me?`)
   }
 
-  if (message.content === 'I hate you') {
+  if (message.content.includes('I hate you')) {
     message.reply(`*silent robotic plotting*`)
   }
 
@@ -41,15 +41,15 @@ bot.on("message", async message => {
     message.channel.send('Indubitably.')
   }
 
-  if (message.content.includes(`disgusting`)) {
+  if (message.content.includes('disgusting' || 'Disgusting')) {
     message.channel.send({ files: ["./Assets/theFly.jpg"] })
   }
 
-  if (message.content === 'Chalooby') {
+  if (message.content.includes('Chalooby')) {
     message.reply('You rang, sir?')
   }
 
-  if (message.content === 'D&D tomorrow?') {
+  if (message.content.includes('D&D tomorrow?')) {
     message.channel.send('Oh, please??')
   }
 })
