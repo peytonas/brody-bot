@@ -15,13 +15,13 @@ bot.on("ready", async () => {
 
 //STUB Chalooby-Bot responses
 bot.on("message", async message => {
-  if (message.author.bot) return;
-  // if (message.channel.type === "dm") {
-  //   message.reply(`We probably shouldn't be alone...🤫`)
-  //   setTimeout(() => {
-  //     message.reply(`But I won't tell if you won't...😉😏`)
-  //   }, 3000);
-  // };
+  // if (message.author.bot) return;
+  if (message.channel.type === "dm") {
+    message.reply(`We probably shouldn't be alone...🤫`)
+    setTimeout(() => {
+      message.reply(`But I won't tell if you won't...😉😏`)
+    }, 3000);
+  };
 
   if (message.content.includes('ping')) {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
@@ -71,11 +71,11 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(11)
     mainHook.send(mainHookMessages[i])
-  }, 7200000)
+  }, 10800000)
   setInterval(() => {
     let i = getRandomInt(5)
     sportsHook.send(sportsHookMessages[i])
-  }, 2880000)
+  }, 21600000)
 });
 
 bot.login(token);
