@@ -42,12 +42,10 @@ bot.on('message', async message => {
 //STUB Chalooby-Bot responses
 bot.on("message", async message => {
   if (message.author.bot) return;
-  // if (message.channel.type === "dm") {
-  //   message.reply(`We probably shouldn't be alone...🤫`)
-  //   setTimeout(() => {
-  //     message.reply(`But I won't tell if you won't...😉😏`)
-  //   }, 3000);
-  // };
+
+  if (message.content === `${prefix}`) {
+    `!join: If user is in a voice channel, Chalooby-Bot will stream a YouTube playlist.`
+  }
 
   if (message.content.includes('ping') || message.content.includes('Ping')) {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
