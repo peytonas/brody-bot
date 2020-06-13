@@ -36,7 +36,13 @@ bot.on("message", async message => {
   }
 
   if (message.content === 'Gross.') {
-    message.reply(`Indubitably`, { files: ["./Assets/theFly.jpg"] })
+    const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'picard_cringe');
+    message.reply(emoji)
+    // message.reply(`Indubitably.`)
+  }
+
+  if (message.content === `That's disgusting`) {
+    message.reply({ files: ["./Assets/theFly.jpg"] })
   }
 
   if (message.content === `Chalooby`) {
