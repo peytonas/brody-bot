@@ -8,7 +8,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-let messages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauer kraut."]
+let messages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauer kraut.", "Fiddle fest, anyone?"]
 
 bot.on("message", async message => {
   if (message.author.bot) return;
@@ -38,7 +38,7 @@ bot.on("message", async message => {
 
 bot.on("ready", async () => {
   setInterval(() => {
-    let i = getRandomInt(4)
+    let i = getRandomInt(5)
     mainHook.send(messages[i])
   }, 300000)
 });
