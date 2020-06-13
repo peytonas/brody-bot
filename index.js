@@ -21,11 +21,11 @@ bot.on('message', async message => {
   // we ignore it
   if (!message.guild) return;
 
-  if (message.content === '!join') {
+  if (message.content === `${prefix}` + 'join') {
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
-      connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
+      connection.play(ytdl('https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', { filter: 'audioonly' }));
     } else {
       message.reply('You need to join a voice channel first!');
     }
