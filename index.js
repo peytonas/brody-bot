@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const mainHook = new Discord.WebhookClient('721174919341146235', 'a5_F6O2y6YeMJPBkXSOhE6eDI3WbEdIcNsnCsu5tza3qYIlhl-45VtUWIYRSrPugLJpe');
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
@@ -47,4 +48,4 @@ bot.on("ready", async () => {
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
-client.login(token);
+bot.login(token);
