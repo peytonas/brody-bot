@@ -36,8 +36,8 @@ bot.on("message", async message => {
   }
 
   if (message.content === 'Gross.') {
-    // const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
-    // console.log(emoji);
+    const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
+    console.log(emoji);
     message.reply(`:gnome_barfing:`)
     // message.reply(`Indubitably.`)
   }
