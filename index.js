@@ -75,7 +75,7 @@ bot.on('message', async message => {
 bot.on("message", async message => {
   if (message.author.bot) return;
 
-  if (message.content === `${prefix}` + 'Music') {
+  if (message.content === `${prefix}` + 'Music' || (message.content === `${prefix}` + 'music')) {
     message.channel.send(
       `
       Music Options:
