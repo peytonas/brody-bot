@@ -27,7 +27,7 @@ bot.on('message', async message => {
   // we ignore it
   if (!message.guild) return;
 
-  if (message.content === `${prefix}` + 'join') {
+  if (message.content === `${prefix}` + 'play') {
     let i = getRandomInt(4)
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
@@ -37,7 +37,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
-  if (message.content === `${prefix}` + 'join 1') {
+  if (message.content === `${prefix}` + 'play 1') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       connection.play(ytdl(ytpl[0], { filter: 'audioonly' }));
@@ -45,7 +45,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
-  if (message.content === `${prefix}` + 'join 2') {
+  if (message.content === `${prefix}` + 'play 2') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       connection.play(ytdl(ytpl[1], { filter: 'audioonly' }));
@@ -53,7 +53,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
-  if (message.content === `${prefix}` + 'join 3') {
+  if (message.content === `${prefix}` + 'play 3') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       connection.play(ytdl(ytpl[2], { filter: 'audioonly' }));
@@ -61,7 +61,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
-  if (message.content === `${prefix}` + 'join 4') {
+  if (message.content === `${prefix}` + 'play 4') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       connection.play(ytdl(ytpl[3], { filter: 'audioonly' }));
@@ -79,11 +79,11 @@ bot.on("message", async message => {
     message.channel.send(
       `
       Music Options:
-      !join: If user is in a voice channel, Chalooby-Bot will stream a random playlist from the following options.
-      !join 1: Chalooby-Bot will stream a 90's playlist.
-      !join 2: Chalooby-Bot will stream a Hip-Hop playlist.
-      !join 3: Chalooby-Bot will stream a 90's Rap playlist.
-      !join 4: Chalooby-Bot will stream a Led Zeppelin playlist.
+      !play: If user is in a voice channel, Chalooby-Bot will stream a random playlist from the following options.
+      !play 1: Chalooby-Bot will stream a 90's playlist.
+      !play 2: Chalooby-Bot will stream a Hip-Hop playlist.
+      !play 3: Chalooby-Bot will stream a 90's Rap playlist.
+      !play 4: Chalooby-Bot will stream a Led Zeppelin playlist.
       `)
   }
 
