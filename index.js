@@ -120,6 +120,10 @@ bot.on("message", async message => {
   if (message.content.includes('D&D tomorrow?')) {
     message.channel.send('Oh, please??')
   }
+
+  if (message.content.includes('batman') || message.content.includes('Batman')) {
+    message.channel.send({ files: ["./Assets/bat_signal.gif"] })
+  }
 })
 
 //REVIEW Webhook messages
