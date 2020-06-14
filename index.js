@@ -78,7 +78,12 @@ bot.on("message", async message => {
   if (message.content === `${prefix}` + 'Music') {
     message.channel.send(
       `
-      Music Options:<br>!join: If user is in a voice channel, Chalooby-Bot will stream a random playlist from the following options.<br>!join 1: Chalooby-Bot will stream a 90's playlist.<br>!join 2: Chalooby-Bot will stream a Hip-Hop playlist.<br>!join 3: Chalooby-Bot will stream a 90's Rap playlist.<br>!join 4: Chalooby-Bot will stream a Led Zeppelin playlist.
+      Music Options:
+      !join: If user is in a voice channel, Chalooby-Bot will stream a random playlist from the following options.
+      !join 1: Chalooby-Bot will stream a 90's playlist.
+      !join 2: Chalooby-Bot will stream a Hip-Hop playlist.
+      !join 3: Chalooby-Bot will stream a 90's Rap playlist.
+      !join 4: Chalooby-Bot will stream a Led Zeppelin playlist.
       `)
   }
 
