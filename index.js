@@ -28,7 +28,7 @@ bot.on('message', async message => {
   if (!message.guild) return;
 
   if (message.content === `${prefix}` + 'play') {
-    let i = getRandomInt(5)
+    let i = getRandomInt(8)
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
