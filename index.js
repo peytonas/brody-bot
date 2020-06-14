@@ -11,14 +11,14 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-//STUB Chalooby-Bot status
+//REVIEW Chalooby-Bot status
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
-//STUB Chalooby-Bot audio
+//REVIEW Chalooby-Bot audio
 
 let ytpl = ['https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', 'https://www.youtube.com/watch?v=fyIcQ1Xl-rs&list=PLxhnpe8pN3TlMilD9JLcwNmjqf2J47cRU', 'https://www.youtube.com/watch?v=fPO76Jlnz6c&list=PLGBuKfnErZlDSR8vN4nse7MI_bQqYvopq', 'https://www.youtube.com/watch?v=kEGuHdKn0Lc&list=PLZKgz45z8N33pvyfu5RmtRSQG5TMo3RC-']
 
@@ -37,17 +37,48 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+  if (message.content === `${prefix}` + 'join 1') {
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      connection.play(ytdl(ytpl[0], { filter: 'audioonly' }));
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
+  }
+  if (message.content === `${prefix}` + 'join 2') {
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      connection.play(ytdl(ytpl[1], { filter: 'audioonly' }));
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
+  }
+  if (message.content === `${prefix}` + 'join 3') {
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      connection.play(ytdl(ytpl[2], { filter: 'audioonly' }));
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
+  }
+  if (message.content === `${prefix}` + 'join 4') {
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      connection.play(ytdl(ytpl[3], { filter: 'audioonly' }));
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
+  }
 });
 
-//STUB Chalooby-Bot responses
+//REVIEW Chalooby-Bot responses
 bot.on("message", async message => {
   if (message.author.bot) return;
 
-  if (message.content === `${prefix}`) {
+  if (message.content === `${prefix}` + 'Music') {
     message.channel.send(
       `
-      Options:
-      !join: If user is in a voice channel, Chalooby-Bot will stream a YouTube playlist.
+      Music Options:<br>!join: If user is in a voice channel, Chalooby-Bot will stream a random playlist from the following options.<br>!join 1: Chalooby-Bot will stream a 90's playlist.<br>!join 2: Chalooby-Bot will stream a Hip-Hop playlist.<br>!join 3: Chalooby-Bot will stream a 90's Rap playlist.<br>!join 4: Chalooby-Bot will stream a Led Zeppelin playlist.
       `)
   }
 
@@ -86,7 +117,7 @@ bot.on("message", async message => {
   }
 })
 
-//STUB Webhook messages
+//REVIEW Webhook messages
 
 let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauerkraut.", "Fiddle fest, anyone?", "Hot.", "Bleep Blorp.", "Eat my shorts.", "Cowabunga!", "Heinous.", "Be excellent to each other."]
 let sportsHookMessages = ["Kobe is 🐐", "MJ is 🐐", "Lebron is 🐐", "🦈 GO SHARKS! 🦈", "I love *sports team*, they play *sport* better than all other sports teams."]
