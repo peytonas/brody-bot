@@ -184,7 +184,7 @@ bot.on("message", async message => {
   }
 
   if (message.content.includes('yikes')) {
-    message.channel.send(": picard_cringe:")
+    message.channel.send(":picard_cringe:")
   }
 })
 
