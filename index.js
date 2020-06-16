@@ -183,7 +183,7 @@ bot.on("message", async message => {
     message.channel.send('Oh, please??')
   }
 
-  if (message.content.includes('F in chat') || message.content.includes('f in chat')) {
+  if (message.content.includes('F in chat') || message.content.includes('f in chat') || message.content.includes('f in the chat') || message.content.includes('F in the chat')) {
     message.channel.send({ files: ["./Assets/F.gif"] })
   }
 
