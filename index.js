@@ -183,8 +183,8 @@ bot.on("message", async message => {
     message.channel.send({ files: ["./Assets/zaddy.gif"] })
   }
 
-  if (message.content.includes('yikes')) {
-    message.channel.send(":picard_cringe:")
+  if (message.content.includes('lol')) {
+    message.channel.send({ files: ["./Assets/f3d.gif"] })
   }
 })
 
