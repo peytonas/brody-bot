@@ -179,11 +179,11 @@ bot.on("message", async message => {
     message.channel.send({ files: ["./Assets/bat_signal.gif"] })
   }
 
-  if (message.content.includes('zaddy')) {
+  if (message.content.includes('zaddy') || message.content.includes('Zaddy')) {
     message.channel.send({ files: ["./Assets/zaddy.gif"] })
   }
 
-  if (message.content.includes('lol')) {
+  if (message.content.includes('lol') || message.content.includes('Lol') || message.content.includes('haha') || message.content.includes('Haha')) {
     message.channel.send({ files: ["./Assets/f3d.gif"] })
   }
 })
