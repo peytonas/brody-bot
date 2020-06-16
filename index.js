@@ -20,7 +20,7 @@ bot.on("ready", async () => {
 
 //REVIEW Chalooby-Bot audio
 
-let ytpl = ['https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', 'https://www.youtube.com/watch?v=fyIcQ1Xl-rs&list=PLxhnpe8pN3TlMilD9JLcwNmjqf2J47cRU', 'https://www.youtube.com/watch?v=fPO76Jlnz6c&list=PLGBuKfnErZlDSR8vN4nse7MI_bQqYvopq', 'https://www.youtube.com/watch?v=kEGuHdKn0Lc&list=PLZKgz45z8N33pvyfu5RmtRSQG5TMo3RC-', 'https://www.youtube.com/watch?v=YdW5-uJqCVY&list=PLLH8sgqaTeYpfT3sb2BVDlgrsoRWj6Mxd', 'https://www.youtube.com/watch?v=owft9ZlQFUQ&list=RDowft9ZlQFUQ', 'https://www.youtube.com/watch?v=50hSld2HTs8&list=PL3D9DEC41F77E5AEF', 'https://www.youtube.com/watch?v=1c7dMmtLYV4&list=PLGgxbfGpTdLkWpmdhSoqycC7sdfX1B1Tp']
+let ytpl = ['https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', 'https://www.youtube.com/watch?v=fyIcQ1Xl-rs&list=PLxhnpe8pN3TlMilD9JLcwNmjqf2J47cRU', 'https://www.youtube.com/watch?v=fPO76Jlnz6c&list=PLGBuKfnErZlDSR8vN4nse7MI_bQqYvopq', 'https://www.youtube.com/watch?v=kEGuHdKn0Lc&list=PLZKgz45z8N33pvyfu5RmtRSQG5TMo3RC-', 'https://www.youtube.com/watch?v=YdW5-uJqCVY&list=PLLH8sgqaTeYpfT3sb2BVDlgrsoRWj6Mxd', 'https://www.youtube.com/watch?v=owft9ZlQFUQ&list=RDowft9ZlQFUQ', 'https://www.youtube.com/watch?v=50hSld2HTs8&list=PL3D9DEC41F77E5AEF', 'https://www.youtube.com/watch?v=1c7dMmtLYV4&list=PLGgxbfGpTdLkWpmdhSoqycC7sdfX1B1Tp', "https://www.youtube.com/watch?v=EV95Yu6gZSY&list=PL3ABE2FBA2900C03E", "https://www.youtube.com/watch?v=U8H3yxNnaG4&list=PLv1udYiEW0AOpmk4KOiVxlhOpMIZQKBUm"]
 
 bot.on('message', async message => {
   // Voice only works in guilds, if the message does not come from a guild,
@@ -101,6 +101,22 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+  if (message.content === `${prefix}` + 'play 9') {
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      connection.play(ytdl(ytpl[8], { filter: 'audioonly' }));
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
+  }
+  if (message.content === `${prefix}` + 'play 10') {
+    if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      connection.play(ytdl(ytpl[9], { filter: 'audioonly' }));
+    } else {
+      message.reply('You need to join a voice channel first!');
+    }
+  }
 });
 
 //REVIEW Chalooby-Bot responses
@@ -120,6 +136,8 @@ bot.on("message", async message => {
       !play 6: Chalooby-Bot will stream a lo-fi Video Game playlist.
       !play 7: Chalooby-Bot will stream a Legend of Zelda Symphony playlist.
       !play 8: Chalooby-Bot will stream a Super Smash Bros playlist.
+      !play 9: Chalooby-Bot will stream a Blade-Runner Soundtrack playlist.
+      !play 10: Chalooby-Bot will stream a Blade-Runner 2049 Soundtrack playlist.
       `)
   }
 
@@ -171,7 +189,7 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(11)
     mainHook.send(mainHookMessages[i])
-  }, 10800000)
+  }, 20000000)
   setInterval(() => {
     let i = getRandomInt(5)
     sportsHook.send(sportsHookMessages[i])
