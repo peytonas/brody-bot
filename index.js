@@ -145,8 +145,12 @@ bot.on("message", async message => {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
   }
 
+  if (message.content.includes('Tell me a joke') || message.content.includes('tell me a joke')) {
+    message.channel.send('YOUR MOM.')
+  }
+
   if (message.content.includes('Tell me you love me')) {
-    message.reply(`How I feel is unimportant.`)
+    message.reply('How I feel is unimportant.')
   }
 
   if (message.content.includes('I love you')) {
@@ -167,12 +171,20 @@ bot.on("message", async message => {
     message.channel.send({ files: ["./Assets/theFly.jpg"] })
   }
 
-  if (message.content.includes('Chalooby')) {
+  if (message.content.includes('sucks') || message.content.includes('Sucks')) {
+    message.channel.send('Sucks to your ass-mar!')
+  }
+
+  if (message.content.includes('Chalooby') || message.content.includes('chalooby')) {
     message.reply('You rang, sir?')
   }
 
   if (message.content.includes('D&D tomorrow?')) {
     message.channel.send('Oh, please??')
+  }
+
+  if (message.content.includes('F in chat') || message.content.includes('f in chat')) {
+    message.channel.send({ files: ["./Assets/F.gif"] })
   }
 
   if (message.content.includes('batman') || message.content.includes('Batman')) {
@@ -186,6 +198,29 @@ bot.on("message", async message => {
   if (message.content.includes('lol') || message.content.includes('Lol') || message.content.includes('haha') || message.content.includes('Haha')) {
     message.channel.send({ files: ["./Assets/f3d.gif"] })
   }
+
+  if (message.content.includes('Hehe') || message.content.includes('hehe')) {
+    message.channel.send({ files: ["./Assets/thatsWhatSheSaid.gif"] })
+  }
+
+  if (message.content.includes('yas') || message.content.includes('Zaddy')) {
+    message.channel.send({ files: ["./Assets/yasQueen.gif"] })
+  }
+
+  if (message.content.includes('drama') || message.content.includes('dramatic')) {
+    message.channel.send({ files: ["./Assets/exaggeration.gif"] })
+  }
+
+  if (message.content.includes('random') || message.content.includes('Random')) {
+    message.channel.send("Random...")
+    setTimeout(function () { message.channel.send({ files: ["./Assets/bca.gif"] }) }, 3000)
+  }
+
+  if (message.content.includes('bad news') || message.content.includes('Bad news')) {
+    message.channel.send({ files: ["./Assets/hoover.jpg"] })
+  }
+
+
 })
 
 //REVIEW Webhook messages
