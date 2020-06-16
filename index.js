@@ -207,7 +207,7 @@ bot.on("message", async message => {
     message.channel.send({ files: ["./Assets/yasQueen.gif"] })
   }
 
-  if (message.content.includes('drama') || message.content.includes('dramatic')) {
+  if (message.content.includes('drama') || message.content.includes('Drama') || message.content.includes('dramatic') || message.content.includes('Dramatic')) {
     message.channel.send({ files: ["./Assets/exaggeration.gif"] })
   }
 
