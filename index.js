@@ -178,6 +178,14 @@ bot.on("message", async message => {
   if (message.content.includes('batman') || message.content.includes('Batman')) {
     message.channel.send({ files: ["./Assets/bat_signal.gif"] })
   }
+
+  if (message.content.includes('zaddy')) {
+    message.channel.send({ files: ["./Assets/zaddy.gif"] })
+  }
+
+  if (message.content.includes('yikes')) {
+    message.channel.send("<:soontm:230340006219087873>")
+  }
 })
 
 //REVIEW Webhook messages
