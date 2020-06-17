@@ -7,6 +7,14 @@ const sportsHook = new Discord.WebhookClient('721429549505708083', 'FWE_vCe-pwP4
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
+let gifs = ["./Assets/bca.gif", "./Assets/abed_flirt.gif", "./Assets/baggle.gif", "./Assets/bat_signal.gif", "./Assets/exaggeration.gif", "./Assets/F.gif", "./Assets/f3d.gif", "./Assets/hoover.jpg", "./Assets/hot.gif", "./Assets/thatsWhatSheSaid.gif", "./Assets/theFly.jpg", "./Assets/yasQueen.gif", "./Assets/zaddy.gif", "./Assets/bears.gif"]
+
+let ytpl = ['https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', 'https://www.youtube.com/watch?v=fyIcQ1Xl-rs&list=PLxhnpe8pN3TlMilD9JLcwNmjqf2J47cRU', 'https://www.youtube.com/watch?v=fPO76Jlnz6c&list=PLGBuKfnErZlDSR8vN4nse7MI_bQqYvopq', 'https://www.youtube.com/watch?v=kEGuHdKn0Lc&list=PLZKgz45z8N33pvyfu5RmtRSQG5TMo3RC-', 'https://www.youtube.com/watch?v=YdW5-uJqCVY&list=PLLH8sgqaTeYpfT3sb2BVDlgrsoRWj6Mxd', 'https://www.youtube.com/watch?v=owft9ZlQFUQ&list=RDowft9ZlQFUQ', 'https://www.youtube.com/watch?v=50hSld2HTs8&list=PL3D9DEC41F77E5AEF', 'https://www.youtube.com/watch?v=1c7dMmtLYV4&list=PLGgxbfGpTdLkWpmdhSoqycC7sdfX1B1Tp', "https://www.youtube.com/watch?v=EV95Yu6gZSY&list=PL3ABE2FBA2900C03E", "https://www.youtube.com/watch?v=U8H3yxNnaG4&list=PLv1udYiEW0AOpmk4KOiVxlhOpMIZQKBUm"]
+
+let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauerkraut.", "Fiddle fest, anyone?", "Hot.", "Bleep Blorp.", "Eat my shorts.", "Cowabunga!", "Heinous.", "Be excellent to each other."]
+
+let sportsHookMessages = ["Kobe is 🐐", "MJ is 🐐", "Lebron is 🐐", "🦈 GO SHARKS! 🦈", "I love *sports team*, they play *sport* better than all other sports teams."]
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -18,9 +26,8 @@ bot.on("ready", async () => {
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
-//REVIEW Chalooby-Bot audio
 
-let ytpl = ['https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', 'https://www.youtube.com/watch?v=fyIcQ1Xl-rs&list=PLxhnpe8pN3TlMilD9JLcwNmjqf2J47cRU', 'https://www.youtube.com/watch?v=fPO76Jlnz6c&list=PLGBuKfnErZlDSR8vN4nse7MI_bQqYvopq', 'https://www.youtube.com/watch?v=kEGuHdKn0Lc&list=PLZKgz45z8N33pvyfu5RmtRSQG5TMo3RC-', 'https://www.youtube.com/watch?v=YdW5-uJqCVY&list=PLLH8sgqaTeYpfT3sb2BVDlgrsoRWj6Mxd', 'https://www.youtube.com/watch?v=owft9ZlQFUQ&list=RDowft9ZlQFUQ', 'https://www.youtube.com/watch?v=50hSld2HTs8&list=PL3D9DEC41F77E5AEF', 'https://www.youtube.com/watch?v=1c7dMmtLYV4&list=PLGgxbfGpTdLkWpmdhSoqycC7sdfX1B1Tp', "https://www.youtube.com/watch?v=EV95Yu6gZSY&list=PL3ABE2FBA2900C03E", "https://www.youtube.com/watch?v=U8H3yxNnaG4&list=PLv1udYiEW0AOpmk4KOiVxlhOpMIZQKBUm"]
+//REVIEW Chalooby-Bot audio
 
 bot.on('message', async message => {
   // Voice only works in guilds, if the message does not come from a guild,
@@ -120,6 +127,7 @@ bot.on('message', async message => {
 });
 
 //REVIEW Chalooby-Bot responses
+
 bot.on("message", async message => {
   if (message.author.bot) return;
 
@@ -145,6 +153,10 @@ bot.on("message", async message => {
     message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
   }
 
+  if (message.content.includes('hot') || message.content.includes('Hot')) {
+    message.channel.send({ files: ["./Assets/abed_flirt.gif"] })
+  }
+
   if (message.content.includes('Tell me a joke') || message.content.includes('tell me a joke')) {
     message.channel.send('YOUR MOM.')
   }
@@ -163,8 +175,6 @@ bot.on("message", async message => {
 
   if (message.content.includes('Gross') || message.content.includes('gross')) {
     message.channel.send('Indubitably.')
-    // const emoji = message.guild.emojis.cache.find(emoji => emoji.name === 'gnome_barfing');
-    // console.log(emoji);
   }
 
   if (message.content.includes('Disgusting') || message.content.includes('disgusting')) {
@@ -212,21 +222,19 @@ bot.on("message", async message => {
   }
 
   if (message.content.includes('random') || message.content.includes('Random')) {
+    let i = getRandomInt(14)
     message.channel.send("Random...")
-    setTimeout(function () { message.channel.send({ files: ["./Assets/bca.gif"] }) }, 3000)
+    setTimeout(function () { message.channel.send({ files: gifs[i] }) }, 3000)
   }
 
   if (message.content.includes('bad news') || message.content.includes('Bad news')) {
-    message.channel.send({ files: ["./Assets/hoover.jpg"] })
+    let i = getRandomInt(2)
+    let badNewsGif = ["./Assets/hoover.jpg", "./Assets/bears.jpg"]
+    message.channel.send({ files: badNewsGif[i] })
   }
-
-
 })
 
 //REVIEW Webhook messages
-
-let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", "I could go for some sauerkraut.", "Fiddle fest, anyone?", "Hot.", "Bleep Blorp.", "Eat my shorts.", "Cowabunga!", "Heinous.", "Be excellent to each other."]
-let sportsHookMessages = ["Kobe is 🐐", "MJ is 🐐", "Lebron is 🐐", "🦈 GO SHARKS! 🦈", "I love *sports team*, they play *sport* better than all other sports teams."]
 
 bot.on("ready", async () => {
   setInterval(() => {
