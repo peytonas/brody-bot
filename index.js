@@ -17,6 +17,8 @@ let sportsHookMessages = ["Kobe is 🐐", "MJ is 🐐", "Lebron is 🐐", "🦈 
 
 let badNewsGifs = ["./Assets/bears.gif", "./Assets/hoover.jpg"]
 
+let hotGifs = ["./Assets/abed_flirt.gif", "./Assets/hot.gif"]
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -156,7 +158,8 @@ bot.on("message", async message => {
   }
 
   if (message.content.includes('hot') || message.content.includes('Hot')) {
-    message.channel.send({ files: ["./Assets/abed_flirt.gif"] })
+    let i = getRandomInt(2)
+    message.channel.send({ files: [hotGifs[i]] })
   }
 
   if (message.content.includes('Tell me a joke') || message.content.includes('tell me a joke')) {
