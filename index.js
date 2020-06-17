@@ -15,6 +15,8 @@ let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", 
 
 let sportsHookMessages = ["Kobe is 🐐", "MJ is 🐐", "Lebron is 🐐", "🦈 GO SHARKS! 🦈", "I love *sports team*, they play *sport* better than all other sports teams."]
 
+let badNewsGifs = ["./Assets/bears.gif", "./Assets/hoover.jpg"]
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -224,13 +226,12 @@ bot.on("message", async message => {
   if (message.content.includes('random') || message.content.includes('Random')) {
     let i = getRandomInt(14)
     message.channel.send("Random...")
-    setTimeout(function () { message.channel.send({ files: gifs[i] }) }, 3000)
+    setTimeout(function () { message.channel.send({ files: [gifs[i]] }) }, 3000)
   }
 
   if (message.content.includes('bad news') || message.content.includes('Bad news')) {
     let i = getRandomInt(2)
-    let badNewsGif = ["./Assets/hoover.jpg", "./Assets/bears.jpg"]
-    message.channel.send({ files: badNewsGif[i] })
+    message.channel.send({ files: [badNewsGifs[i]] })
   }
 })
 
