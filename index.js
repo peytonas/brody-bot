@@ -251,6 +251,10 @@ bot.on("message", async message => {
   if (message.content.includes('depressing') || message.content.includes('Depressing') || message.content.includes('depressed') || message.content.includes('Depressed')) {
     message.channel.send({ files: ["./Assets/humanway.gif"] })
   }
+
+  if (message.content.includes('no way') || message.content.includes('not even') || message.content.includes('absolutely not') || message.content.includes('No way') || message.content.includes('Not even') || message.content.includes('Absolutely not')) {
+    message.channel.send({ files: ["./Assets/humanway.gif"] })
+  }
 })
 
 //REVIEW Webhook messages
