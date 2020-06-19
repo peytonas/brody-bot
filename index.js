@@ -221,7 +221,7 @@ bot.on("message", async message => {
   }
 
   if (message.content.includes('yas') || message.content.includes('Yas')) {
-    let i = getRandomInt(5)
+    let i = getRandomInt(4)
     message.channel.send({ files: [hypeGifs[i]] })
   }
 
