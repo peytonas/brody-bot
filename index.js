@@ -15,7 +15,7 @@ let mainHookMessages = ["Gross.", "D&D tomorrow?", "Frustrated bloaty sounds.", 
 
 let sportsHookMessages = ["Kobe is 🐐", "MJ is 🐐", "Lebron is 🐐", "🦈 GO SHARKS! 🦈", "I love *sports team*, they play *sport* better than all other sports teams."]
 
-let hypeGifs = ["./Assets/hype.gif", "./Assets/yasQueen.gif", "./Assets/nk_smile", "./Assets/nk_arya_high5"]
+let hypeGifs = ["./Assets/hype.gif", "./Assets/yasQueen.gif", "./Assets/nk_smile.gif", "./Assets/nk_arya_high5.gif"]
 
 let badNewsGifs = ["./Assets/bears.gif", "./Assets/hoover.jpg", "./sadporg.gif", "./Assets/bidenshock.gif"]
 
