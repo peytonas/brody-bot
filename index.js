@@ -240,7 +240,7 @@ bot.on("message", async message => {
     message.channel.send({ files: [badNewsGifs[i]] })
   }
 
-  if (message.content.includes('irony') || message.content.includes('ironic')) {
+  if (message.content.includes('irony') || message.content.includes('ironic') || message.content.includes('Irony') || message.content.includes('Ironic')) {
     message.channel.send({ files: ["./Assets/ironic.gif"] })
   }
 
