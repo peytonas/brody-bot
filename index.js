@@ -248,9 +248,6 @@ bot.on("message", async message => {
     message.channel.send({ files: ["./Assets/absolutelynot.gif"] })
   }
 
-  if (message.content.includes('fuck')) {
-    message.edit(`||` + message.content + `||`).then(msg => msg.channel.send('Language.'))
-  }
 })
 
 //REVIEW Webhook messages
