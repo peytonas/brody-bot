@@ -249,7 +249,7 @@ bot.on("message", async message => {
   }
 
   if (message.content.includes('fuck')) {
-    message.edit('fuck').then(msg => msg.channel.send('Language.'))
+    message.edit(`||` + message.content + `||`).then(msg => msg.channel.send('Language.'))
   }
 })
 
