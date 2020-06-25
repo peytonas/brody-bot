@@ -247,6 +247,10 @@ bot.on("message", async message => {
   if (message.content.includes('no way') || message.content.includes('not even') || message.content.includes('absolutely not') || message.content.includes('No way') || message.content.includes('Not even') || message.content.includes('Absolutely not')) {
     message.channel.send({ files: ["./Assets/absolutelynot.gif"] })
   }
+
+  if (message.content.includes('fuck')) {
+    message.edit('fuck').then(msg => msg.channel.send('Language.'))
+  }
 })
 
 //REVIEW Webhook messages
