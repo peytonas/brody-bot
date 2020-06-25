@@ -212,10 +212,6 @@ bot.on("message", async message => {
     message.channel.send({ files: ["./Assets/zaddy.gif"] })
   }
 
-  if (message.content.includes('lol') || message.content.includes('Lol') || message.content.includes('haha') || message.content.includes('Haha')) {
-    message.channel.send({ files: ["./Assets/f3d.gif"] })
-  }
-
   if (message.content.includes('Hehe') || message.content.includes('hehe')) {
     message.channel.send({ files: ["./Assets/thatsWhatSheSaid.gif"] })
   }
@@ -244,8 +240,8 @@ bot.on("message", async message => {
     message.channel.send({ files: ["./Assets/ironic.gif"] })
   }
 
-  if (message.content.includes('more') || message.content.includes('More')) {
-    message.channel.send({ files: ["./Assets/more.gif"] })
+  if (message.content.includes('Yikes') || message.content.includes('yikes')) {
+    message.channel.send({ files: ["./Assets/yikes.gif"] })
   }
 
   if (message.content.includes('no way') || message.content.includes('not even') || message.content.includes('absolutely not') || message.content.includes('No way') || message.content.includes('Not even') || message.content.includes('Absolutely not')) {
@@ -259,11 +255,11 @@ bot.on("ready", async () => {
   setInterval(() => {
     let i = getRandomInt(11)
     mainHook.send(mainHookMessages[i])
-  }, 20000000)
+  }, 25000000)
   setInterval(() => {
     let i = getRandomInt(5)
     sportsHook.send(sportsHookMessages[i])
-  }, 21600000)
+  }, 31600000)
 });
 
 bot.login(token);
