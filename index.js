@@ -7,7 +7,7 @@ const sportsHook = new Discord.WebhookClient('721429549505708083', 'FWE_vCe-pwP4
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
-let gifs = ["./Assets/bca.gif", "./Assets/abed_flirt.gif", "./Assets/baggle.gif", "./Assets/bat_signal.gif", "./Assets/exaggeration.gif", "./Assets/F.gif", "./Assets/f3d.gif", "./Assets/hoover.jpg", "./Assets/hot.gif", "./Assets/thatsWhatSheSaid.gif", "./Assets/theFly.jpg", "./Assets/yasQueen.gif", "./Assets/zaddy.gif", "./Assets/bears.gif", "./Assets/more.gif", "./Assets/tyrion.gif", "./Assets/sausage.gif", "./Assets/sadporg.gif", "./Assets/nk_smile.gif", "./Assets/nk_arya_high5.gif", "./Assets/lukemilk.gif", "./Assets/lukekylo.gif", "./Assets/littlefinger.gif", "./Assets/flybarf.gif", "./Assets/highfivedivorce.gif", "./Assets/lesmisstefon.gif", "./Assets/midgetwaist.gif", "./Assets/stefonyes.gif", "./Assets/humanway.gif", "./Assets/bidenshock.gif", "./Assets/hillary_wow.gif", "./Assets/hype.gif", "./Assets/ironic.gif", "./Assets/skynet.gif", "./Assets/strange.gif", "./Assets/starlord.gif"]
+let gifs = ["./Assets/bca.gif", "./Assets/abed_flirt.gif", "./Assets/absolutelynot.gif", "./Assets/baggle.gif", "./Assets/bat_signal.gif", "./Assets/exaggeration.gif", "./Assets/F.gif", "./Assets/f3d.gif", "./Assets/hoover.jpg", "./Assets/hot.gif", "./Assets/thatsWhatSheSaid.gif", "./Assets/theFly.jpg", "./Assets/yasQueen.gif", "./Assets/zaddy.gif", "./Assets/bears.gif", "./Assets/more.gif", "./Assets/tyrion.gif", "./Assets/sausage.gif", "./Assets/sadporg.gif", "./Assets/nk_smile.gif", "./Assets/nk_arya_high5.gif", "./Assets/lukemilk.gif", "./Assets/lukekylo.gif", "./Assets/littlefinger.gif", "./Assets/flybarf.gif", "./Assets/highfivedivorce.gif", "./Assets/lesmisstefon.gif", "./Assets/midgetwaist.gif", "./Assets/stefonyes.gif", "./Assets/humanway.gif", "./Assets/bidenshock.gif", "./Assets/hillary_wow.gif", "./Assets/hype.gif", "./Assets/ironic.gif", "./Assets/skynet.gif", "./Assets/strange.gif", "./Assets/starlord.gif", "./Assets/grumpy_aku.gif", "./Assets/lonely_jack.gif", "./Assets/suspicious.gif"]
 
 let ytpl = ['https://www.youtube.com/watch?v=Zzyfcys1aLM&list=PLZyqOyXxaVETqpHhT_c5GPmAPzhJpJ5K7', 'https://www.youtube.com/watch?v=fyIcQ1Xl-rs&list=PLxhnpe8pN3TlMilD9JLcwNmjqf2J47cRU', 'https://www.youtube.com/watch?v=fPO76Jlnz6c&list=PLGBuKfnErZlDSR8vN4nse7MI_bQqYvopq', 'https://www.youtube.com/watch?v=kEGuHdKn0Lc&list=PLZKgz45z8N33pvyfu5RmtRSQG5TMo3RC-', 'https://www.youtube.com/watch?v=YdW5-uJqCVY&list=PLLH8sgqaTeYpfT3sb2BVDlgrsoRWj6Mxd', 'https://www.youtube.com/watch?v=owft9ZlQFUQ&list=RDowft9ZlQFUQ', 'https://www.youtube.com/watch?v=50hSld2HTs8&list=PL3D9DEC41F77E5AEF', 'https://www.youtube.com/watch?v=1c7dMmtLYV4&list=PLGgxbfGpTdLkWpmdhSoqycC7sdfX1B1Tp', "https://www.youtube.com/watch?v=EV95Yu6gZSY&list=PL3ABE2FBA2900C03E", "https://www.youtube.com/watch?v=U8H3yxNnaG4&list=PLv1udYiEW0AOpmk4KOiVxlhOpMIZQKBUm"]
 
@@ -157,21 +157,13 @@ bot.on("message", async message => {
       `)
   }
 
-  if (message.content.includes('ping') || message.content.includes('Ping')) {
-    message.channel.send(`I WON'T DO WHAT YOU TELL ME!`)
-  }
-
-  if (message.content.includes('hot') || message.content.includes('Hot')) {
+  if (message.content === 'hot' || message.content === 'Hot') {
     let i = getRandomInt(5)
     message.channel.send({ files: [hotGifs[i]] })
   }
 
   if (message.content.includes('Tell me a joke') || message.content.includes('tell me a joke')) {
     message.channel.send('YOUR MOM.')
-  }
-
-  if (message.content.includes('Tell me you love me')) {
-    message.reply('How I feel is unimportant.')
   }
 
   if (message.content.includes('I love you')) {
@@ -226,7 +218,7 @@ bot.on("message", async message => {
   }
 
   if (message.content.includes('random') || message.content.includes('Random')) {
-    let i = getRandomInt(36)
+    let i = getRandomInt(40)
     message.channel.send("Random...")
     setTimeout(function () { message.channel.send({ files: [gifs[i]] }) }, 3000)
   }
@@ -246,6 +238,18 @@ bot.on("message", async message => {
 
   if (message.content.includes('no way') || message.content.includes('not even') || message.content.includes('absolutely not') || message.content.includes('No way') || message.content.includes('Not even') || message.content.includes('Absolutely not')) {
     message.channel.send({ files: ["./Assets/absolutelynot.gif"] })
+  }
+
+  if (message.content.includes('lonely') || message.content.includes('Lonely') || message.content.includes('lonesome') || message.content.includes('Lonesome') || message.content.includes('alone') || message.content.includes('Alone')) {
+    message.channel.send({ files: ["./Assets/lonely_jack.gif"] })
+  }
+
+  if (message.content.includes('grumpy') || message.content.includes('Grumpy')) {
+    message.channel.send({ files: ["./Assets/grumpy_aku.gif"] })
+  }
+
+  if (message.content.includes('suspicious') || message.content.includes('Suspicious') || message.content.includes('Sketchy') || message.content.includes('sketchy')) {
+    message.channel.send({ files: ["./Assets/suspicious.gif"] })
   }
 
 })
