@@ -34,6 +34,13 @@ bot.on("ready", async () => {
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
+bot.on("ready", async () => {
+  setInterval(() => {
+    var donny = bot.channels.fetch('721195052461981777')
+    donny.send("Hello!"), 5000
+  })
+});
+
 
 //REVIEW Chalooby-Bot audio
 
@@ -260,15 +267,15 @@ bot.on("message", async message => {
 
 //REVIEW Webhook messages
 
-bot.on("ready", async () => {
-  setInterval(() => {
-    let i = getRandomInt(11)
-    mainHook.send(mainHookMessages[i])
-  }, 25000000)
-  setInterval(() => {
-    let i = getRandomInt(5)
-    sportsHook.send(sportsHookMessages[i])
-  }, 31600000)
-});
+// bot.on("ready", async () => {
+//   setInterval(() => {
+//     let i = getRandomInt(11)
+//     mainHook.send(mainHookMessages[i])
+//   }, 25000000)
+//   setInterval(() => {
+//     let i = getRandomInt(5)
+//     sportsHook.send(sportsHookMessages[i])
+//   }, 31600000)
+// });
 
 bot.login(token);
