@@ -269,18 +269,16 @@ bot.on('message', async message => {
 
 //REVIEW Webhook messages
 
-bot.on("ready", async () => {
-  setInterval(() => {
-    let i = getRandomInt(11)
-    mainHook.send(mainHookMessages[i])
-  }, 25000000)
-  setInterval(() => {
-    let i = getRandomInt(5)
-    sportsHook.send(sportsHookMessages[i])
-  }, 31600000)
-  setInterval(() => {
-    sportsHook.send('.quote')
-  })
-});
+// bot.on("ready", async () => {
+//   setInterval(() => {
+//     let i = getRandomInt(11)
+//     mainHook.send(mainHookMessages[i])
+//   }, 25000000)
+//   setInterval(() => {
+//     let i = getRandomInt(5)
+//     sportsHook.send(sportsHookMessages[i])
+//   }, 31600000)
+
+// });
 
 bot.login(token);
