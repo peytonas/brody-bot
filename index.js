@@ -36,14 +36,6 @@ bot.on('ready', async () => {
 
 //REVIEW Chalooby-Bot audio
 
-// bot.on('message', async message => {
-//   if (message.content === `bananaPancakes420`) {
-//     setInterval(() => {
-//       message.channel.send('.quote')
-//     }, 30000)
-//   }
-// })
-
 bot.on('message', async message => {
   // Voice only works in guilds, if the message does not come from a guild,
   // we ignore it
@@ -277,15 +269,18 @@ bot.on('message', async message => {
 
 //REVIEW Webhook messages
 
-// bot.on("ready", async () => {
-//   setInterval(() => {
-//     let i = getRandomInt(11)
-//     mainHook.send(mainHookMessages[i])
-//   }, 25000000)
-//   setInterval(() => {
-//     let i = getRandomInt(5)
-//     sportsHook.send(sportsHookMessages[i])
-//   }, 31600000)
-// });
+bot.on("ready", async () => {
+  setInterval(() => {
+    let i = getRandomInt(11)
+    mainHook.send(mainHookMessages[i])
+  }, 25000000)
+  setInterval(() => {
+    let i = getRandomInt(5)
+    sportsHook.send(sportsHookMessages[i])
+  }, 31600000)
+  setInterval(() => {
+    sportsHook.send('.quote')
+  })
+});
 
 bot.login(token);
