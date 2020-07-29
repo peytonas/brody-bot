@@ -1,8 +1,25 @@
 const Discord = require('discord.js');
+const rp = require('request-promise');
 const bot = new Discord.Client();
 const ytdl = require('ytdl-core');
 const mainHook = new Discord.WebhookClient('721174919341146235', 'a5_F6O2y6YeMJPBkXSOhE6eDI3WbEdIcNsnCsu5tza3qYIlhl-45VtUWIYRSrPugLJpe');
 const sportsHook = new Discord.WebhookClient('721429549505708083', 'FWE_vCe-pwP46xrImqnyrzYQ1JZXQ4bMLe6-hYtKrV72ftiyUxuZ9l4IEDEMAyT3JeIL');
+const url = 'https://inspirobot.me/'
+
+rp(url)
+  .then(function (html) {
+    //success!
+    console.log(html);
+  })
+  .catch(function (err) {
+    //handle error
+  });
+
+
+
+
+
+
 
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
@@ -30,6 +47,7 @@ function getRandomInt(max) {
 //REVIEW Chalooby-Bot status
 
 bot.on('ready', async () => {
+  rp(url)
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
