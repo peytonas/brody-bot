@@ -34,15 +34,13 @@ bot.on("ready", async () => {
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
-bot.on("ready", async () => {
-  setInterval(() => {
-    var donny = bot.channels.fetch('721195052461981777')
-    donny.send("Hello!"), 5000
-  })
-});
-
-
 //REVIEW Chalooby-Bot audio
+
+bot.on('ready', async message => {
+  setInterval(() => {
+    message.channel.send('test')
+  }, 5000)
+})
 
 bot.on('message', async message => {
   // Voice only works in guilds, if the message does not come from a guild,
@@ -59,6 +57,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 1') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -67,6 +66,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 2') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -75,6 +75,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 3') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -83,6 +84,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 4') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -91,6 +93,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 5') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -99,6 +102,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 6') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -107,6 +111,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 7') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -115,6 +120,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 8') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -123,6 +129,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 9') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -131,6 +138,7 @@ bot.on('message', async message => {
       message.reply('You need to join a voice channel first!');
     }
   }
+
   if (message.content === `${prefix}` + 'play 10') {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
@@ -143,7 +151,7 @@ bot.on('message', async message => {
 
 //REVIEW Chalooby-Bot responses
 
-bot.on("message", async message => {
+bot.on('message', async message => {
   if (message.author.bot) return;
 
   if (message.content === `${prefix}` + 'Music' || (message.content === `${prefix}` + 'music')) {
