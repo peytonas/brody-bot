@@ -9,6 +9,7 @@ const url = 'https://inspirobot.me/'
 rp(url)
   .then(function (html) {
     //success!
+    console.log(url);
     console.log(html);
   })
   .catch(function (err) {
