@@ -39,8 +39,8 @@ bot.on('ready', async () => {
 bot.on('message', async message => {
   if (message.content === `bananaPancakes420`) {
     setInterval(() => {
-      message.channel.send('test')
-    }, 5000)
+      message.channel.send('.quote')
+    }, 30000)
   }
 })
 
