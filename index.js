@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const rp = require('request-promise');
+const $ = require('cheerio');
 const bot = new Discord.Client();
 const ytdl = require('ytdl-core');
 const mainHook = new Discord.WebhookClient('721174919341146235', 'a5_F6O2y6YeMJPBkXSOhE6eDI3WbEdIcNsnCsu5tza3qYIlhl-45VtUWIYRSrPugLJpe');
@@ -9,8 +10,9 @@ const url = 'https://inspirobot.me/'
 rp(url)
   .then(function (html) {
     //success!
-    console.log(url);
-    console.log(html);
+    console.log($('div > img').length);
+    console.log($('div > img', html));
+
   })
   .catch(function (err) {
     //handle error
