@@ -29,17 +29,19 @@ function getRandomInt(max) {
 
 //REVIEW Chalooby-Bot status
 
-bot.on("ready", async () => {
+bot.on('ready', async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
 //REVIEW Chalooby-Bot audio
 
-bot.on('ready', async message => {
-  setInterval(() => {
-    message.channel.send('test')
-  }, 5000)
+bot.on('message', async message => {
+  if (message.content === `bananaPancakes420`) {
+    setInterval(() => {
+      message.channel.send('test')
+    }, 5000)
+  }
 })
 
 bot.on('message', async message => {
