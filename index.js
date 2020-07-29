@@ -36,13 +36,13 @@ bot.on('ready', async () => {
 
 //REVIEW Chalooby-Bot audio
 
-bot.on('message', async message => {
-  if (message.content === `bananaPancakes420`) {
-    setInterval(() => {
-      message.channel.send('.quote')
-    }, 30000)
-  }
-})
+// bot.on('message', async message => {
+//   if (message.content === `bananaPancakes420`) {
+//     setInterval(() => {
+//       message.channel.send('.quote')
+//     }, 30000)
+//   }
+// })
 
 bot.on('message', async message => {
   // Voice only works in guilds, if the message does not come from a guild,
