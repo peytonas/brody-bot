@@ -6,6 +6,7 @@ const mainHook = new Discord.WebhookClient('721174919341146235', 'a5_F6O2y6YeMJP
 const sportsHook = new Discord.WebhookClient('721429549505708083', 'FWE_vCe-pwP46xrImqnyrzYQ1JZXQ4bMLe6-hYtKrV72ftiyUxuZ9l4IEDEMAyT3JeIL');
 
 casper.start('https://inspirobot.me/', function () {
+  console.log('started');
   if (this.exists('div.btn-text')) {
     this.click('div.btn-text')
     console.log('clicked');
