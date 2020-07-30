@@ -10,6 +10,7 @@
     "discord.js-commando": "^0.10.0",
     "ffmpeg-static": "^4.2.4",
     "request": "^2.88.2",
+    "slimerjs": "^1.0.0",
     "ytdl-core": "^2.1.7"
   },
   "devDependencies": {},
