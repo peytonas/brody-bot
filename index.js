@@ -3,20 +3,27 @@ const bot = new Discord.Client();
 const ytdl = require('ytdl-core');
 const mainHook = new Discord.WebhookClient('721174919341146235', 'a5_F6O2y6YeMJPBkXSOhE6eDI3WbEdIcNsnCsu5tza3qYIlhl-45VtUWIYRSrPugLJpe');
 const sportsHook = new Discord.WebhookClient('721429549505708083', 'FWE_vCe-pwP46xrImqnyrzYQ1JZXQ4bMLe6-hYtKrV72ftiyUxuZ9l4IEDEMAyT3JeIL');
-// const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');
+let imgs;
 
-// (async () => {
-//   const browser = await puppeteer.launch();
-//   const page = await browser.newPage();
-//   await page.goto('https://inspirobot.me/');
-//   // await page.screenshot({ path: 'example.png' });
-//   await page.click('.btn-text')
-//   await page.content()
-//   // await page.screenshot({ path: 'example.png' });
-
-//   await browser.close();
-// })();
-
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://inspirobot.me/');
+  await page.click('.btn-text')
+  await page.screenshot({ path: 'example1.png' })
+  await page.screenshot({ path: 'example2.png' })
+  await page.screenshot({ path: 'example3.png' })
+  await page.screenshot({ path: 'example4.png' })
+  await page.screenshot({ path: 'example5.png' })
+  await page.screenshot({ path: 'example6.png' })
+  await page.screenshot({ path: 'example7.png' })
+  await page.screenshot({ path: 'example8.png' })
+  // await page.click('.generated-image')
+  imgs = await page.$$eval('.generator img[src]', imgs => imgs.map(img => img.getAttribute('src')));
+  console.log(imgs[0]);
+  await browser.close();
+})();
 
 
 
@@ -167,6 +174,10 @@ bot.on('message', async message => {
 
 bot.on('message', async message => {
   if (message.author.bot) return;
+
+  if (message.content === `!quote`) {
+    message.channel.send(imgs)
+  }
 
   if (message.content === `${prefix}` + 'Music' || (message.content === `${prefix}` + 'music')) {
     message.channel.send(

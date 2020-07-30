@@ -13,7 +13,8 @@ const puppeteer = require('puppeteer');
   await page.screenshot({ path: 'example6.png' })
   await page.screenshot({ path: 'example7.png' })
   await page.screenshot({ path: 'example8.png' })
-  await page.screenshot({ path: 'example9.png' })
-  await page.screenshot({ path: 'example10.png' })
+  // await page.click('.generated-image')
+  const imgs = await page.$$eval('.generator img[src]', imgs => imgs.map(img => img.getAttribute('src')));
+  console.log(imgs[0]);
   await browser.close();
 })();
