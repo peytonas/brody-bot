@@ -1,6 +1,4 @@
 const Discord = require('discord.js');
-const rp = require('request-promise');
-const $ = require('cheerio');
 const bot = new Discord.Client();
 const ytdl = require('ytdl-core');
 const casper = require('casperjs').create();
