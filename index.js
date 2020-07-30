@@ -1,41 +1,27 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const ytdl = require('ytdl-core');
-const casper = require('casperjs').create();
 const mainHook = new Discord.WebhookClient('721174919341146235', 'a5_F6O2y6YeMJPBkXSOhE6eDI3WbEdIcNsnCsu5tza3qYIlhl-45VtUWIYRSrPugLJpe');
 const sportsHook = new Discord.WebhookClient('721429549505708083', 'FWE_vCe-pwP46xrImqnyrzYQ1JZXQ4bMLe6-hYtKrV72ftiyUxuZ9l4IEDEMAyT3JeIL');
+// const puppeteer = require('puppeteer');
 
-casper.start('https://inspirobot.me/', function () {
-  console.log('started');
-  if (this.exists('div.btn-text')) {
-    this.click('div.btn-text')
-    console.log('clicked');
-  } else {
-    console.log('no button');
-  }
-})
+// (async () => {
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
+//   await page.goto('https://inspirobot.me/');
+//   // await page.screenshot({ path: 'example.png' });
+//   await page.click('.btn-text')
+//   await page.content()
+//   // await page.screenshot({ path: 'example.png' });
 
-casper.run()
+//   await browser.close();
+// })();
 
-// casper
-//   .then(function () {
-//     console.log("Start:");
-//   })
-//   .thenOpen("https://inspirobot.me/")
-//   .then(function () {
-//     // scrape something
-//     this.echo(this.getHTML('h1#foobar'));
-//   })
-//   .thenClick("#button1")
-//   .then(function () {
-//     // scrape something else
-//     this.echo(this.getHTML('h2#foobar'));
-//   }),
-//    function () {
-//   this.echo("data sent back to the server")
-// };
 
-// casper.run();
+
+
+
+
 
 
 const prefix = process.env.PREFIX;
