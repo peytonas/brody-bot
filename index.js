@@ -194,7 +194,7 @@ bot.on('message', async message => {
   }
 
   if (message.content === '!quote') {
-    message.channel.send(`${imgs}`)
+    message.channel.send(imgs)
   }
 
   if (message.content === 'hot' || message.content === 'Hot') {
