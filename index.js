@@ -11,21 +11,35 @@ const sportsHook = new Discord.WebhookClient(
 );
 
 const puppeteer = require("puppeteer");
+let imgs;
 
 const grabInspo = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
-  const el = await page.$("#contents");
-  const buffer = await el.screenshot({ path: `${Date.now()}.png` });
-  // await page.click(".btn-text");
-  // await page.waitFor(6000);
-  // let imgs = await page.$$eval(".generator img[src]", (imgs) =>
-  //   imgs.map((img) => img.getAttribute("src"))
-  // );
+  await page.click(".btn-text");
+  await page.waitFor(6000);
+  imgs = await page.$$eval(".generator img[src]", (imgs) =>
+    imgs.map((img) => img.getAttribute("src"))
+  );
   await browser.close();
-  return buffer;
 };
+
+bot.on("message", async (message) => {
+  if (message.content === "!quote") {
+    console.log("finding pics");
+    const buffer = grabInspo();
+    const embed = new Discord.MessageEmbed()
+      // Set the title of the field
+      .setTitle("INSPIROBOT")
+      // Set the color of the embed
+      .setColor(0xff0000)
+      // Set the main content of the embed
+      .setDescription("Your dose of inspiration here:")
+      .setImage("https://generated.inspirobot.me/a/d7eEGl13P8.jpg");
+    message.channel.send(embed);
+  }
+});
 
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
@@ -260,22 +274,6 @@ bot.on("message", async (message) => {
 });
 
 //REVIEW Chalooby-Bot responses
-
-bot.on("message", async (message) => {
-  if (message.content === "!quote") {
-    console.log("finding pics");
-    const buffer = grabInspo();
-    const embed = new Discord.MessageEmbed()
-      // Set the title of the field
-      .setTitle("INSPIROBOT")
-      // Set the color of the embed
-      .setColor(0xff0000)
-      // Set the main content of the embed
-      .setDescription("Your dose of inspiration here:");
-    // .setImage(`${buffer}`);
-    message.channel.send(embed);
-  }
-});
 
 bot.on("message", async (message) => {
   if (message.author.bot) return;
