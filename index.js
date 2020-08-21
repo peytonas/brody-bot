@@ -18,11 +18,19 @@ const grabInspo = async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
+  console.log("inspo-site");
   await page.click(".btn-text");
-  await page.waitFor(6000);
-  imgs = await page.$$eval(".generator img[src]", (imgs) =>
-    imgs.map((img) => img.getAttribute("src"))
-  );
+  console.log("clicked");
+  await page.waitForSelector(".generated-image");
+  console.log("awaiting img");
+  const svgImage = await page.$("#svg");
+  await svgImage.screenshot({
+    path: "logo-screenshot.png",
+    omitBackground: true,
+  });
+  // imgs = await page.$$eval(".generator img[src]", (imgs) =>
+  //   imgs.map((img) => img.getAttribute("src"))
+  //   );
   console.log(imgs);
   await browser.close();
 };
