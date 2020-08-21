@@ -33,7 +33,9 @@ bot.on("message", async (message) => {
     grabInspo();
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
-      .setThumbnail("./Assets/inspiro.png")
+      .setThumbnail(
+        "https://inspirobot.me/website/images/inspirobot-dark-green.png"
+      )
       .setColor(0xff0000)
       .setDescription("Your dose of inspiration here:");
     // .setImage("https://generated.inspirobot.me/a/d7eEGl13P8.jpg");
