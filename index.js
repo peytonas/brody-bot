@@ -11,7 +11,6 @@ const sportsHook = new Discord.WebhookClient(
 );
 
 const puppeteer = require("puppeteer");
-let imgs;
 
 const test = (async () => {
   const browser = await puppeteer.launch();
@@ -19,15 +18,17 @@ const test = (async () => {
   await page.goto("https://inspirobot.me/");
   await page.click(".btn-text");
   await page.waitFor(1500);
-  imgs = await page.$$eval(".generator img[src]", (imgs) =>
+  await browser.close();
+
+  return page.$$eval(".generator img[src]", (imgs) =>
     imgs.map((img) => img.getAttribute("src"))
   );
-  await browser.close();
 })();
-console.log(imgs);
+
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
     console.log("finding pics");
+    const imgs = await test();
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
       .setThumbnail(
