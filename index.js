@@ -11,20 +11,19 @@ const sportsHook = new Discord.WebhookClient(
 );
 
 const puppeteer = require("puppeteer");
-let imgs;
 
-(async () => {
+const grabInspo = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
   await page.click(".btn-text");
   await page.waitFor(6000);
-  let img1 = await page.$$eval(".generator img[src]", (imgs) =>
+  let imgs = await page.$$eval(".generator img[src]", (imgs) =>
     imgs.map((img) => img.getAttribute("src"))
   );
-  imgs = img1;
   await browser.close();
-})();
+  return imgs;
+};
 
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
@@ -261,6 +260,20 @@ bot.on("message", async (message) => {
 //REVIEW Chalooby-Bot responses
 
 bot.on("message", async (message) => {
+  if (message.content === "!quote") {
+    const buffer = grabInspo();
+    const embed = new Discord.MessageEmbed()
+      // Set the title of the field
+      .setTitle("A slick little embed")
+      // Set the color of the embed
+      .setColor(0xff0000)
+      // Set the main content of the embed
+      .setDescription("Hello, this is a slick embed!")
+      .setImage(`${buffer}`);
+  }
+});
+
+bot.on("message", async (message) => {
   if (message.author.bot) return;
 
   if (
@@ -283,10 +296,6 @@ bot.on("message", async (message) => {
       !play 10: Chalooby-Bot will stream a Blade-Runner 2049 Soundtrack playlist.
       `
     );
-  }
-
-  if (message.content === "!quote") {
-    message.channel.send(imgs);
   }
 
   if (message.content === "hot" || message.content === "Hot") {
