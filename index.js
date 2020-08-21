@@ -30,7 +30,7 @@ const grabInspo = async () => {
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
     console.log("finding pics");
-    const buffer = grabInspo();
+    grabInspo();
     const embed = new Discord.MessageEmbed()
       // Set the title of the field
       .setTitle("INSPIROBOT")
