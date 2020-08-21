@@ -22,6 +22,7 @@ const grabInspo = async () => {
   imgs = await page.$$eval(".generator img[src]", (imgs) =>
     imgs.map((img) => img.getAttribute("src"))
   );
+  console.log(imgs);
   await browser.close();
 };
 
