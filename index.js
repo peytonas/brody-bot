@@ -14,6 +14,7 @@ const puppeteer = require("puppeteer");
 let imgs;
 
 const grabInspo = async () => {
+  console.log("running");
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
