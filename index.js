@@ -13,6 +13,7 @@ const sportsHook = new Discord.WebhookClient(
 const puppeteer = require("puppeteer");
 
 const test = (async () => {
+  console.log("running");
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
