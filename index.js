@@ -267,11 +267,11 @@ bot.on("message", async (message) => {
     const buffer = grabInspo();
     const embed = new Discord.MessageEmbed()
       // Set the title of the field
-      .setTitle("A slick little embed")
+      .setTitle("INSPIROBOT")
       // Set the color of the embed
       .setColor(0xff0000)
       // Set the main content of the embed
-      .setDescription("Hello, this is a slick embed!");
+      .setDescription("Your dose of inspiration here:");
     // .setImage(`${buffer}`);
     message.channel.send(embed);
   }
