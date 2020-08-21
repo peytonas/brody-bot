@@ -15,7 +15,7 @@ let imgs;
 
 const grabInspo = async () => {
   console.log("running");
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
   await page.click(".btn-text");
