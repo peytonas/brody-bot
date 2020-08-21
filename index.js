@@ -25,7 +25,7 @@ const test = (async () => {
     let img = document.querySelectorAll(
       "body > #inspirobot > div > div > div > img"
     );
-    sources.push(img);
+    sources.push(img.src);
   });
   console.log(imgs.sources);
   await browser.close();
