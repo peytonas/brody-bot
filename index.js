@@ -9,6 +9,7 @@ const sportsHook = new Discord.WebhookClient(
   "721429549505708083",
   "FWE_vCe-pwP46xrImqnyrzYQ1JZXQ4bMLe6-hYtKrV72ftiyUxuZ9l4IEDEMAyT3JeIL"
 );
+
 const puppeteer = require("puppeteer");
 let imgs;
 
@@ -21,8 +22,6 @@ let imgs;
   imgs = await page.$$eval(".generator img[src]", (imgs) =>
     imgs.map((img) => img.getAttribute("src"))
   );
-  console.log("success");
-  console.log(imgs[0]);
   await browser.close();
 })();
 
@@ -286,6 +285,7 @@ bot.on("message", async (message) => {
   }
 
   if (message.content === "!quote") {
+    message.channel.send("yes!");
     message.channel.send(imgs);
   }
 
