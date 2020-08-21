@@ -1,24 +1,18 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const ytdl = require("ytdl-core");
-const mainHook = new Discord.WebhookClient(
-  "721174919341146235",
-  "a5_F6O2y6YeMJPBkXSOhE6eDI3WbEdIcNsnCsu5tza3qYIlhl-45VtUWIYRSrPugLJpe"
-);
-const sportsHook = new Discord.WebhookClient(
-  "721429549505708083",
-  "FWE_vCe-pwP46xrImqnyrzYQ1JZXQ4bMLe6-hYtKrV72ftiyUxuZ9l4IEDEMAyT3JeIL"
-);
 
 const puppeteer = require("puppeteer");
 
 const test = async () => {
-  console.log("running");
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
   await page.click(".btn-text");
   await page.waitFor(1500);
+  await page.$$eval(".generator img[src]", (imgs) =>
+    imgs.map((img) => img.getAttribute("src"))
+  );
   await browser.close();
 
   return page.$$eval(".generator img[src]", (imgs) =>
@@ -30,14 +24,14 @@ bot.on("message", async (message) => {
   if (message.content === "!quote") {
     console.log("finding pics");
     const imgs = await test();
+    console.log(imgs);
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
       .setThumbnail(
         "https://inspirobot.me/website/images/inspirobot-dark-green.png"
       )
       .setColor(0xff0000)
-      .setDescription("Your dose of inspiration here:")
-      .setImage(`${imgs}`);
+      .setDescription("Your dose of inspiration here:");
     message.channel.send(embed);
   }
 });
@@ -464,19 +458,5 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/dk_shake.gif"] });
   }
 });
-
-//REVIEW Webhook messages
-
-// bot.on("ready", async () => {
-//   setInterval(() => {
-//     let i = getRandomInt(11)
-//     mainHook.send(mainHookMessages[i])
-//   }, 25000000)
-//   setInterval(() => {
-//     let i = getRandomInt(5)
-//     sportsHook.send(sportsHookMessages[i])
-//   }, 31600000)
-
-// });
 
 bot.login(token);
