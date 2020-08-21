@@ -32,11 +32,11 @@ bot.on("message", async (message) => {
     console.log("finding pics");
     grabInspo();
     const embed = new Discord.MessageEmbed()
-      // Set the title of the field
       .setTitle("INSPIROBOT")
-      // Set the color of the embed
+      .setThumbnail(
+        "https://inspirobot.me/website/images/inspirobot-dark-green.png"
+      )
       .setColor(0xff0000)
-      // Set the main content of the embed
       .setDescription("Your dose of inspiration here:");
     // .setImage("https://generated.inspirobot.me/a/d7eEGl13P8.jpg");
     message.channel.send(embed);
