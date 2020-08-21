@@ -11,6 +11,19 @@ const sportsHook = new Discord.WebhookClient(
 );
 
 const puppeteer = require("puppeteer");
+let imgs;
+
+let scrape = (async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto("https://inspirobot.me/");
+  await page.click(".btn-text");
+  await page.waitFor(6000);
+  imgs = await page.$$eval(".generator img[src]", (imgs) =>
+    imgs.map((img) => img.getAttribute("src"))
+  );
+  await browser.close();
+})();
 
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
@@ -272,16 +285,7 @@ bot.on("message", async (message) => {
   }
 
   if (message.content === "!quote") {
-    let imgs;
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto("https://inspirobot.me/");
-    await page.click(".btn-text");
-    await page.waitFor(6000);
-    imgs = await page.$$eval(".generator img[src]", (imgs) =>
-      imgs.map((img) => img.getAttribute("src"))
-    );
-    await browser.close();
+    scrape;
     message.channel.send("yes!");
     message.channel.send(imgs);
   }
