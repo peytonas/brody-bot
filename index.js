@@ -29,7 +29,7 @@ const test = (async () => {
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
     console.log("finding pics");
-    const imgs = await test;
+    const imgs = await test();
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
       .setThumbnail(
