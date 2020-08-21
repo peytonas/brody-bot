@@ -11,34 +11,26 @@ const sportsHook = new Discord.WebhookClient(
 );
 
 const puppeteer = require("puppeteer");
+
 let imgs;
 
-const grabInspo = async () => {
-  console.log("running");
-  const browser = await puppeteer.launch({ headless: false });
+const test = (async () => {
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
-  console.log("inspo-site");
   await page.click(".btn-text");
-  console.log("clicked");
-  await page.waitForSelector(".generated-image");
-  console.log("awaiting img");
-  const svgImage = await page.$("#svg");
-  await svgImage.screenshot({
-    path: "logo-screenshot.png",
-    omitBackground: true,
-  });
-  // imgs = await page.$$eval(".generator img[src]", (imgs) =>
-  //   imgs.map((img) => img.getAttribute("src"))
-  //   );
-  console.log(imgs);
+  await page.waitFor(1500);
+  imgs = await page.$$eval(".generator img[src]", (imgs) =>
+    imgs.map((img) => img.getAttribute("src"))
+  );
+  console.log(imgs[0]);
   await browser.close();
-};
+})();
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
+    test;
     console.log("finding pics");
-    grabInspo();
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
       .setThumbnail(
