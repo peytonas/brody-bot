@@ -29,9 +29,9 @@ const test = (async () => {
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
     message.channel.send("https://generated.inspirobot.me/a/DpPzxapoe7.jpg");
-    setTimeout(function () {
+    setInterval(function () {
       test;
-    }, 1500);
+    }, 3000);
     console.log(imgs[0]);
     console.log("finding pics");
     const embed = new Discord.MessageEmbed()
