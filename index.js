@@ -24,7 +24,7 @@ const test = (async () => {
   );
   await browser.close();
 })();
-
+console.log(imgs);
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
     console.log("finding pics");
