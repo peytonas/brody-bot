@@ -12,7 +12,7 @@ const sportsHook = new Discord.WebhookClient(
 
 const puppeteer = require("puppeteer");
 
-const test = (async () => {
+const test = async () => {
   console.log("running");
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -24,7 +24,7 @@ const test = (async () => {
   return page.$$eval(".generator img[src]", (imgs) =>
     imgs.map((img) => img.getAttribute("src"))
   );
-})();
+};
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
