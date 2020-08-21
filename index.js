@@ -37,8 +37,8 @@ bot.on("message", async (message) => {
       // Set the color of the embed
       .setColor(0xff0000)
       // Set the main content of the embed
-      .setDescription("Your dose of inspiration here:")
-      .setImage("https://generated.inspirobot.me/a/d7eEGl13P8.jpg");
+      .setDescription("Your dose of inspiration here:");
+    // .setImage("https://generated.inspirobot.me/a/d7eEGl13P8.jpg");
     message.channel.send(embed);
   }
 });
