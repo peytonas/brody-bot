@@ -28,7 +28,9 @@ const test = (async () => {
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
-    test;
+    setTimeout(function () {
+      test;
+    }, 1500);
     console.log(imgs);
     console.log("finding pics");
     const embed = new Discord.MessageEmbed()
