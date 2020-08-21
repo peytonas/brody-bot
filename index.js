@@ -11,7 +11,6 @@ const sportsHook = new Discord.WebhookClient(
 );
 
 const puppeteer = require("puppeteer");
-
 let imgs;
 
 const test = (async () => {
