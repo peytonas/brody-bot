@@ -271,8 +271,8 @@ bot.on("message", async (message) => {
       // Set the color of the embed
       .setColor(0xff0000)
       // Set the main content of the embed
-      .setDescription("Hello, this is a slick embed!")
-      .setImage(`${buffer}`);
+      .setDescription("Hello, this is a slick embed!");
+    // .setImage(`${buffer}`);
     message.channel.send(embed);
   }
 });
