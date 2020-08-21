@@ -28,7 +28,6 @@ const test = (async () => {
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
-    message.channel.send("https://generated.inspirobot.me/a/DpPzxapoe7.jpg");
     setInterval(function () {
       test;
     }, 3000);
