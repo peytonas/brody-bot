@@ -23,7 +23,6 @@ const test = (async () => {
   imgs = await page.$$eval(".generator img[src]", (imgs) =>
     imgs.map((img) => img.getAttribute("src"))
   );
-  console.log(imgs[0]);
   await browser.close();
 })();
 
@@ -38,7 +37,7 @@ bot.on("message", async (message) => {
       )
       .setColor(0xff0000)
       .setDescription("Your dose of inspiration here:")
-      .setImage(`${imgs[0]}`);
+      .setImage(`${imgs}`);
     message.channel.send(embed);
   }
 });
