@@ -14,27 +14,25 @@ const puppeteer = require("puppeteer");
 
 let imgs;
 
-const test = (async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto("https://inspirobot.me/");
-  await page.click(".btn-text");
-  await page.waitFor(1500);
-  const imgs = await page.evaluate(() => {
-    let sources = [];
-    let img = document.querySelectorAll(
-      "body > #inspirobot > div > div > div > img"
-    );
-    sources.push(img.src);
-  });
-  console.log(imgs.sources);
-  await browser.close();
-})();
-
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
-    test;
     console.log("finding pics");
+    (async () => {
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+      await page.goto("https://inspirobot.me/");
+      await page.click(".btn-text");
+      await page.waitFor(1500);
+      const imgs = await page.evaluate(() => {
+        let sources = [];
+        let img = document.querySelectorAll(
+          "body > #inspirobot > div > div > div > img"
+        );
+        sources.push(img.src);
+      });
+      console.log(imgs.sources);
+      await browser.close();
+    })();
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
       .setThumbnail(
