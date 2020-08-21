@@ -16,13 +16,15 @@ const grabInspo = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://inspirobot.me/");
-  await page.click(".btn-text");
-  await page.waitFor(6000);
-  let imgs = await page.$$eval(".generator img[src]", (imgs) =>
-    imgs.map((img) => img.getAttribute("src"))
-  );
+  const el = await page.$("#contents");
+  const buffer = await el.screenshot({ path: `${Date.now()}.png` });
+  // await page.click(".btn-text");
+  // await page.waitFor(6000);
+  // let imgs = await page.$$eval(".generator img[src]", (imgs) =>
+  //   imgs.map((img) => img.getAttribute("src"))
+  // );
   await browser.close();
-  return imgs;
+  return buffer;
 };
 
 const prefix = process.env.PREFIX;
