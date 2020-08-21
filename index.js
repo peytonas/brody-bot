@@ -28,10 +28,6 @@ const test = (async () => {
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
-    setInterval(function () {
-      test;
-    }, 3000);
-    console.log(imgs[0]);
     console.log("finding pics");
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
@@ -39,8 +35,7 @@ bot.on("message", async (message) => {
         "https://inspirobot.me/website/images/inspirobot-dark-green.png"
       )
       .setColor(0xff0000)
-      .setDescription("Your dose of inspiration here:")
-      .setImage(`${imgs[0]}`);
+      .setDescription("Your dose of inspiration here:");
     message.channel.send(embed);
   }
 });
