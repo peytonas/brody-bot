@@ -27,8 +27,8 @@ bot.on("message", async (message) => {
       .setThumbnail(
         "https://inspirobot.me/website/images/inspirobot-dark-green.png"
       )
-      .setColor(0xff0000)
-      .setDescription("I believe that:");
+      .setColor(0xff0000);
+    // .setDescription("I believe that:");
     message.channel.send(embed);
   }
 });
