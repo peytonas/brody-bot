@@ -27,8 +27,10 @@ bot.on("message", async (message) => {
       .setThumbnail(
         "https://inspirobot.me/website/images/inspirobot-dark-green.png"
       )
-      .setColor(0xff0000);
-    // .setDescription("I believe that:");
+      .setColor(0xff0000)
+      .setImage(
+        "https://i.pinimg.com/originals/4a/3e/cf/4a3ecf27eac13564145691bb16a8cf90.png"
+      );
     message.channel.send(embed);
   }
 });
