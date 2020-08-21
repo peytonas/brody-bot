@@ -261,6 +261,7 @@ bot.on("message", async (message) => {
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
+    console.log("finding pics");
     const buffer = grabInspo();
     const embed = new Discord.MessageEmbed()
       // Set the title of the field
@@ -270,6 +271,7 @@ bot.on("message", async (message) => {
       // Set the main content of the embed
       .setDescription("Hello, this is a slick embed!")
       .setImage(`${buffer}`);
+    message.channel.send(embed);
   }
 });
 
