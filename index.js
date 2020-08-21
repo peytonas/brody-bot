@@ -10,28 +10,25 @@ const test = async () => {
   await page.goto("https://inspirobot.me/");
   await page.click(".btn-text");
   await page.waitFor(1500);
-  await page.$$eval(".generator img[src]", (imgs) =>
-    imgs.map((img) => img.getAttribute("src"))
-  );
-  await browser.close();
-
-  return page.$$eval(".generator img[src]", (imgs) =>
-    imgs.map((img) => img.getAttribute("src"))
-  );
+  return page
+    .$$eval(".generator img[src]", (imgs) =>
+      imgs.map((img) => img.getAttribute("src"))
+    )
+    .then(await browser.close);
 };
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
+    // const imgs = await test();
     console.log("finding pics");
-    const imgs = await test();
-    console.log(imgs);
+    // console.log(imgs);
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
       .setThumbnail(
         "https://inspirobot.me/website/images/inspirobot-dark-green.png"
       )
       .setColor(0xff0000)
-      .setDescription("Your dose of inspiration here:");
+      .setDescription("I believe that:");
     message.channel.send(embed);
   }
 });
