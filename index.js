@@ -32,7 +32,7 @@ bot.on("message", async (message) => {
     setTimeout(function () {
       test;
     }, 1500);
-    console.log(imgs);
+    console.log(imgs[0]);
     console.log("finding pics");
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
@@ -41,7 +41,7 @@ bot.on("message", async (message) => {
       )
       .setColor(0xff0000)
       .setDescription("Your dose of inspiration here:")
-      .setImage(`${imgs}`);
+      .setImage(`${imgs[0]}`);
     message.channel.send(embed);
   }
 });
