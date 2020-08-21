@@ -14,17 +14,21 @@ const puppeteer = require("puppeteer");
 let imgs;
 
 const grabInspo = async () => {
-  console.log("running");
-  const browser = await puppeteer.launch({ headless: false });
-  const page = await browser.newPage();
-  await page.goto("https://inspirobot.me/");
-  await page.click(".btn-text");
-  await page.waitFor(6000);
-  imgs = await page.$$eval(".generator img[src]", (imgs) =>
-    imgs.map((img) => img.getAttribute("src"))
-  );
-  console.log(imgs);
-  await browser.close();
+  try {
+    console.log("running");
+    const browser = await puppeteer.launch({ headless: false });
+    const page = await browser.newPage();
+    await page.goto("https://inspirobot.me/");
+    await page.click(".btn-text");
+    await page.waitFor(6000);
+    imgs = await page.$$eval(".generator img[src]", (imgs) =>
+      imgs.map((img) => img.getAttribute("src"))
+    );
+    console.log(imgs);
+    await browser.close();
+  } catch (err) {
+    alert(err);
+  }
 };
 
 bot.on("message", async (message) => {
