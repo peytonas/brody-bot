@@ -20,14 +20,20 @@ const test = (async () => {
   await page.goto("https://inspirobot.me/");
   await page.click(".btn-text");
   await page.waitFor(1500);
-  imgs = await page.$$eval(".generator img[src]", (imgs) =>
-    imgs.map((img) => img.getAttribute("src"))
-  );
+  const imgs = await page.evaluate(() => {
+    let sources = [];
+    let img = document.querySelectorAll(
+      "body > #inspirobot > div > div > div > img"
+    );
+    sources.push(img);
+  });
+  console.log(imgs.sources);
   await browser.close();
 })();
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
+    test;
     console.log("finding pics");
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
