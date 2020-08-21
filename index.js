@@ -45,8 +45,8 @@ bot.on("message", async (message) => {
         "https://inspirobot.me/website/images/inspirobot-dark-green.png"
       )
       .setColor(0xff0000)
-      .setDescription("Your dose of inspiration here:");
-    // .setImage("https://generated.inspirobot.me/a/d7eEGl13P8.jpg");
+      .setDescription("Your dose of inspiration here:")
+      .setImage("logo-screenshot.png");
     message.channel.send(embed);
   }
 });
