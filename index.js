@@ -2,40 +2,6 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const ytdl = require("ytdl-core");
 
-const puppeteer = require("puppeteer");
-let imgs;
-
-const test = async () => {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
-  await page.goto("https://inspirobot.me/");
-  await page.click(".btn-text");
-  await page.waitFor(1500);
-  imgs = await page.$$eval(".generator img[src]", (imgs) =>
-    imgs.map((img) => img.getAttribute("src"))
-  );
-  await browser.close();
-};
-
-bot.on("message", async (message) => {
-  if (message.content === "!quote") {
-    await test()
-    // imgs = await test();
-    console.log("finding pics");
-    console.log(imgs);
-    const embed = new Discord.MessageEmbed()
-    .setTitle("INSPIROBOT")
-    .setThumbnail(
-      "https://inspirobot.me/website/images/inspirobot-dark-green.png"
-      )
-      .setColor(0xff0000)
-      .setImage(
-        "https://i.pinimg.com/originals/4a/3e/cf/4a3ecf27eac13564145691bb16a8cf90.png"
-      );
-    message.channel.send(embed);
-  }
-});
-
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
@@ -157,10 +123,6 @@ bot.on("message", async (message) => {
   // Voice only works in guilds, if the message does not come from a guild,
   // we ignore it
   if (!message.guild) return;
-
-  if (message.content == "!quote") {
-    setInterval(function(){ message.reply(imgs[0]); }, 3000);
-  }
 
   if (message.content === `${prefix}` + "play") {
     let i = getRandomInt(8);
