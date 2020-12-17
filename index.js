@@ -110,14 +110,6 @@ let mainHookMessages = [
   "Be excellent to each other.",
 ];
 
-let sportsHookMessages = [
-  "Kobe is 🐐",
-  "MJ is 🐐",
-  "Lebron is 🐐",
-  "🦈 GO SHARKS! 🦈",
-  "I love *sports team*, they play *sport* better than all other sports teams.",
-];
-
 let hypeGifs = [
   "./Assets/hype.gif",
   "./Assets/yasQueen.gif",
@@ -155,6 +147,7 @@ function getRandomInt(max) {
 //REVIEW Chalooby-Bot status
 
 bot.on("ready", async () => {
+  setInterval(function(){ alert("Hello"); }, 3000);
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
@@ -369,15 +362,6 @@ bot.on("message", async (message) => {
   }
 
   if (
-    message.content.includes("drama") ||
-    message.content.includes("Drama") ||
-    message.content.includes("dramatic") ||
-    message.content.includes("Dramatic")
-  ) {
-    message.channel.send({ files: ["./Assets/exaggeration.gif"] });
-  }
-
-  if (
     message.content.includes("random") ||
     message.content.includes("Random")
   ) {
@@ -407,28 +391,6 @@ bot.on("message", async (message) => {
 
   if (message.content.includes("Yikes") || message.content.includes("yikes")) {
     message.channel.send({ files: ["./Assets/yikes.gif"] });
-  }
-
-  if (
-    message.content.includes("no way") ||
-    message.content.includes("not even") ||
-    message.content.includes("absolutely not") ||
-    message.content.includes("No way") ||
-    message.content.includes("Not even") ||
-    message.content.includes("Absolutely not")
-  ) {
-    message.channel.send({ files: ["./Assets/absolutelynot.gif"] });
-  }
-
-  if (
-    message.content.includes("lonely") ||
-    message.content.includes("Lonely") ||
-    message.content.includes("lonesome") ||
-    message.content.includes("Lonesome") ||
-    message.content.includes("alone") ||
-    message.content.includes("Alone")
-  ) {
-    message.channel.send({ files: ["./Assets/lonely_jack.gif"] });
   }
 
   if (
