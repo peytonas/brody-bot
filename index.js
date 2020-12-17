@@ -159,7 +159,7 @@ bot.on("message", async (message) => {
   if (!message.guild) return;
 
   if (message.content == "!quote") {
-    setInterval(function(){ message.reply("test"); }, 3000);
+    setInterval(function(){ message.reply(imgs[0]); }, 3000);
   }
 
   if (message.content === `${prefix}` + "play") {
