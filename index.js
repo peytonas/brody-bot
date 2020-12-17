@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 const ytdl = require("ytdl-core");
 
 const puppeteer = require("puppeteer");
+let imgs;
 
 const test = async () => {
   const browser = await puppeteer.launch();
@@ -10,18 +11,18 @@ const test = async () => {
   await page.goto("https://inspirobot.me/");
   await page.click(".btn-text");
   await page.waitFor(1500);
-  return page
-    .$$eval(".generator img[src]", (imgs) =>
-      imgs.map((img) => img.getAttribute("src"))
-    )
-    .then(await browser.close);
+  imgs = await page.$$eval(".generator img[src]", (imgs) =>
+    imgs.map((img) => img.getAttribute("src"))
+  );
+  console.log(imgs[0]);
+  await browser.close();
 };
 
 bot.on("message", async (message) => {
   if (message.content === "!quote") {
-    // const imgs = await test();
+    imgs = await test();
     console.log("finding pics");
-    // console.log(imgs);
+    console.log(imgs);
     const embed = new Discord.MessageEmbed()
       .setTitle("INSPIROBOT")
       .setThumbnail(
