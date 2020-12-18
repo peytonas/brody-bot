@@ -233,14 +233,14 @@ bot.on("message", async (message) => {
 //REVIEW Chalooby-Bot responses
 
 function checkOnline() {
-  var guild = bot.guilds.get(guildId);
+  // var guild = bot.guilds.get(guildId);
   var users = 0;
   for (var user in users) {
     if (user.presence.status == "online") {
       users += 1
     }
   }
-  users == 4 ? guild.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => bot.destroy()) : guild.channels.get(chaloobyChannelId).send("There are " + users + "of you online currently.").then(() => bot.destroy())
+  users == 4 ? bot.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => bot.destroy()) : bot.channels.get(chaloobyChannelId).send("There are " + users + "of you online currently.").then(() => bot.destroy())
 }
 
 bot.on("message", async (message) => {
