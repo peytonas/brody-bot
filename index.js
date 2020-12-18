@@ -1,5 +1,8 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
+const guildId = 692153312149241857;
+const mainChattyId = 692153312631586839;
+const chaloobyChannelId = 692162506159816734
 const ytdl = require("ytdl-core");
 
 const prefix = process.env.PREFIX;
@@ -115,6 +118,7 @@ function getRandomInt(max) {
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Brody...", { type: "WATCHING" });
+  setInterval(function(){ checkOnline(); }, 10000);
 });
 
 //REVIEW Chalooby-Bot audio
@@ -227,6 +231,17 @@ bot.on("message", async (message) => {
 });
 
 //REVIEW Chalooby-Bot responses
+
+function checkOnline() {
+  var guild = client.guilds.get(guildId);
+  var users = 0;
+  for (var user in users) {
+    if (user.presence.status == "online") {
+      users += 1
+    }
+  }
+  users == 4 ? guild.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => client.destroy()) : none
+}
 
 bot.on("message", async (message) => {
   if (message.author.bot) return;
