@@ -3,6 +3,7 @@ const bot = new Discord.Client();
 const guildId = 692153312149241857;
 const mainChattyId = 692153312631586839;
 const chaloobyChannelId = 692162506159816734
+chaloobyCheck = bot.channels.get("id", chaloobyChannelId)
 const ytdl = require("ytdl-core");
 
 const prefix = process.env.PREFIX;
@@ -239,8 +240,9 @@ function checkOnline() {
     if (user.presence.status == "online") {
       users += 1
     }
+    console.log(users)
   }
-  users == 4 ? Discord.ClientUser.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => bot.destroy()) : Discord.ClientUser.channels.get(chaloobyChannelId).send("There are " + users + "of you online currently.").then(() => bot.destroy())
+  users == 4 ? chaloobyCheck.sendMessage("CHALOOOOOOBY") : chaloobyCheck.sendMessage("there are currently" + users + "online")
 }
 
 bot.on("message", async (message) => {
