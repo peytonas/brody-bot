@@ -235,7 +235,7 @@ bot.on("message", async (message) => {
 function checkOnline() {
   // var guild = bot.guilds.get(guildId);
   var users = 0;
-  for (var user in users) {
+  for (var user in Discord.ClientUser.users) {
     if (user.presence.status == "online") {
       users += 1
     }
