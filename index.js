@@ -240,7 +240,7 @@ function checkOnline() {
       users += 1
     }
   }
-  users == 4 ? bot.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => bot.destroy()) : bot.channels.get(chaloobyChannelId).send("There are " + users + "of you online currently.").then(() => bot.destroy())
+  users == 4 ? bot.Client.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => bot.destroy()) : bot.Client.channels.get(chaloobyChannelId).send("There are " + users + "of you online currently.").then(() => bot.destroy())
 }
 
 bot.on("message", async (message) => {
