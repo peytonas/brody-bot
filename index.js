@@ -3,7 +3,6 @@ const bot = new Discord.Client();
 const guildId = 692153312149241857;
 const mainChattyId = 692153312631586839;
 const chaloobyChannelId = 692162506159816734
-chaloobyCheck = bot.channels.get("id", chaloobyChannelId)
 const ytdl = require("ytdl-core");
 
 const prefix = process.env.PREFIX;
@@ -119,7 +118,7 @@ function getRandomInt(max) {
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Brody...", { type: "WATCHING" });
-  setInterval(function(){ checkOnline(); }, 10000);
+  // setInterval(function(){ checkOnline(); }, 10000);
 });
 
 //REVIEW Chalooby-Bot audio
@@ -233,17 +232,17 @@ bot.on("message", async (message) => {
 
 //REVIEW Chalooby-Bot responses
 
-function checkOnline() {
-  // var guild = bot.guilds.get(guildId);
-  var users = 0;
-  for (var user in Discord.ClientUser.users) {
-    if (user.presence.status == "online") {
-      users += 1
-    }
-    console.log(users)
-  }
-  users == 4 ? chaloobyCheck.sendMessage("CHALOOOOOOBY") : chaloobyCheck.sendMessage("there are currently" + users + "online")
-}
+// function checkOnline() {
+//   // var guild = bot.guilds.get(guildId);
+//   var users = 0;
+//   for (var user in Discord.ClientUser.users) {
+//     if (user.presence.status == "online") {
+//       users += 1
+//     }
+//     console.log(users)
+//   }
+//   users == 4 ? chaloobyCheck.sendMessage("CHALOOOOOOBY") : chaloobyCheck.sendMessage("there are currently" + users + "online")
+// }
 
 bot.on("message", async (message) => {
   if (message.author.bot) return;
