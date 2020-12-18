@@ -240,7 +240,7 @@ function checkOnline() {
       users += 1
     }
   }
-  users == 4 ? guild.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => client.destroy()) : none
+  users == 4 ? guild.channels.get(chaloobyChannelId).send("CHALOOOOOOBY").then(() => client.destroy()) : guild.channels.get(chaloobyChannelId).send("There are " + users + "of you online currently.").then(() => client.destroy())
 }
 
 bot.on("message", async (message) => {
