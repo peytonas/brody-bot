@@ -124,7 +124,11 @@ bot.on("message", async (message) => {
   }
 
   if (message.content.includes("sucks") || message.content.includes("Sucks")) {
-    message.channel.send("Sucks to your ass-mar!");
+    if (message.author.bot) {
+      return;
+    } else {
+      message.channel.send("Sucks to your ass-mar!");
+    }
   }
 
   if (
@@ -168,7 +172,11 @@ bot.on("message", async (message) => {
     message.content.includes("Random")
   ) {
     let i = getRandomInt(40);
+    if (message.author.bot) {
+      return;
+    } else {
     message.channel.send("Random...");
+    }
     setTimeout(function () {
       message.channel.send({ files: [gifs[i]] });
     }, 3000);
