@@ -86,13 +86,14 @@ bot.on("ready", async () => {
 bot.on("message", async (message) => {
 
   if (message.content === '!watch') {
-    // bot.guilds.cache.reduce((a, g) => a + g.memberCount, 0)
-    const embed = new Discord.MessageEmbed();
-    const gang = message.guild.members.cache.filter(member => member.presence.status !== "offline").size
-    embed.addField("Online Members", gang)
-    if (gang === 4) {
-      message.channel.send("The Gang's all here!")
-    }
+    if (message.content.toLowerCase() == "stats") {
+        const Embed = new discord.MessageEmbed();
+        Embed.setTitle(`Server Stats`)
+        // Using Collection.filter() to separate the online members from the offline members.
+        Embed.addField("Online Members", message.guild.members.cache.filter(member => member.presence.status !== "offline").size);
+        Embed.addField("Offline Members", message.guild.members.cache.filter(member => member.presence.status == "offline").size);
+        message.channel.send(Embed);
+    };
   }
 
   if (message.content === '!quote') {
