@@ -89,8 +89,9 @@ bot.on("message", async (message) => {
         const Embed = new Discord.MessageEmbed();
         Embed.setTitle(`Server Stats`)
         // Using Collection.filter() to separate the online members from the offline members.
-        Embed.addField("Online Members", message.guild.members.cache.filter(user => user.presence.status === "online" || "idle").length);
-        Embed.addField("Offline Members", message.guild.members.cache.filter(user => user.presence.status === "offline").length);
+        Embed.addField("Online Members", message.guild.members.filter(user => user.presence.status === "online").size);
+        Embed.addField("Online Members", message.guild.members.filter(user => user.presence.status === "idle").size);
+        Embed.addField("Offline Members", message.guild.members.filter(user => user.presence.status === "offline").size);
         message.channel.send(Embed);
   }
 
