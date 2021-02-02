@@ -86,7 +86,6 @@ bot.on("ready", async () => {
 bot.on("message", async (message) => {
 
   if (message.content === '!watch') {
-    i
         const Embed = new discord.MessageEmbed();
         Embed.setTitle(`Server Stats`)
         // Using Collection.filter() to separate the online members from the offline members.
