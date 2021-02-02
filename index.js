@@ -87,7 +87,7 @@ bot.on("message", async (message) => {
 
   if (message.content === '!watch') {
     const Embed = new Discord.MessageEmbed();
-    const onlineMembers = message.guild.members.cache.filter(m => m.presence.status !== 'offline').map(member.member.username).join(", ")
+    const onlineMembers = message.guild.members.cache.filter(m => m.presence.status !== 'offline').map(member => member.user.username).join(", ")
         Embed.setTitle(`Server Stats`)
         Embed.addField("Online Members", onlineMembers);
         // Embed.addField("Offline Members", message.guild.members.filter(member => member.presence.status == "offline").size);
