@@ -85,7 +85,7 @@ bot.on("ready", async () => {
 
 bot.on("message", async (message) => {
 
-  if (message.content === '.quote') {
+  if (message.content === '!quote') {
       request('http://inspirobot.me/api?generate=true', function (error, response, body) {
       if (!error && response.statusCode == 200) {
         message.channel.send({
