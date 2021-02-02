@@ -90,7 +90,7 @@ bot.on("message", async (message) => {
     const onlineMembers = message.guild.members.cache.filter(m => m.presence.status !== 'offline')
     console.log(message.guild.members.cache.filter(m => m.presence.status !== 'offline').size);
         Embed.setTitle(`Server Stats`)
-        Embed.addField("Online Members", onlineMembers.length);
+        Embed.addField("Online Members", onlineMembers);
         // Embed.addField("Offline Members", message.guild.members.filter(member => member.presence.status == "offline").size);
         message.channel.send(Embed);
   }
