@@ -85,20 +85,6 @@ bot.on("ready", async () => {
 
 bot.on("message", async (message) => {
 
-  if (message.content === '!watch') {
-    const Embed = new Discord.MessageEmbed();
-    const onlineMembers = message.guild.members.cache.filter(m => m.presence.status !== 'offline').size
-    console.log(message.guild.members.cache.filter(m => m.presence.status !== 'offline').size);
-    console.log(message.guild.members);
-    console.log(message.guild.members.cache.filter(m => m.presence.status !== 'offline'));
-    console.log(message.guild.members.cache.filter(m => m.presence.status === 'offline'));
-
-        Embed.setTitle(`Server Stats`)
-        Embed.addField("Online Members", onlineMembers);
-        // Embed.addField("Offline Members", message.guild.members.filter(member => member.presence.status == "offline").size);
-        message.channel.send(Embed);
-  }
-
   if (message.content === '!quote') {
       request('http://inspirobot.me/api?generate=true', function (error, response, body) {
       if (!error && response.statusCode == 200) {
