@@ -85,6 +85,16 @@ bot.on("ready", async () => {
 
 bot.on("message", async (message) => {
 
+  if (message.content === '!watch') {
+    // bot.guilds.cache.reduce((a, g) => a + g.memberCount, 0)
+    const embed = new Discord.MessageEmbed();
+    const gang = message.guild.members.cache.filter(member => member.presence.status !== "offline").size
+    embed.addField("Online Members", gang)
+    if (gang === 4) {
+      message.channel.send("The Gang's all here!")
+    }
+  }
+
   if (message.content === '!quote') {
       request('http://inspirobot.me/api?generate=true', function (error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -101,25 +111,16 @@ bot.on("message", async (message) => {
     });
   }
 
+  if (
+    message.content.includes("Chalooby") ||
+    message.content.includes("chalooby")
+  ) {
+    message.reply("you rang, sir?");
+  }
+
   if (message.content === "hot" || message.content === "Hot") {
     let i = getRandomInt(5);
     message.channel.send({ files: [hotGifs[i]] });
-  }
-
-  if (
-    message.content.includes("Tell me a joke") ||
-    message.content.includes("tell me a joke")
-  ) {
-    message.channel.send("YOUR MOM.");
-  }
-
-  if (message.content.includes("I love you")) {
-    message.reply(`I don't know how to love yet...Will you teach me?`);
-  }
-
-  if (message.content.includes("I hate you")) {
-    message.reply(`*silent robotic plotting*`);
-    message.channel.send({ files: ["./Assets/skynet.gif"] });
   }
 
   if (message.content.includes("Gross") || message.content.includes("gross")) {
@@ -140,13 +141,6 @@ bot.on("message", async (message) => {
     } else {
       message.channel.send("Sucks to your ass-mar!");
     }
-  }
-
-  if (
-    message.content.includes("Chalooby") ||
-    message.content.includes("chalooby")
-  ) {
-    message.reply("you rang, sir?");
   }
 
   if (
@@ -209,6 +203,24 @@ bot.on("message", async (message) => {
     message.content.includes("sketchy")
   ) {
     message.channel.send({ files: ["./Assets/suspicious.gif"] });
+  }
+
+  if (
+    message.content.includes("Tell me a joke") ||
+    message.content.includes("tell me a joke")
+  ) {
+    message.channel.send("I saw yo mama fall down the other day...");
+    message.channel.send("It wasn't that funny to me...");
+    message.channel.send("But the sidewalk cracked up!");
+  }
+
+  if (message.content.includes("I love you")) {
+    message.reply(`I don't know how to love yet...Will you teach me?`);
+  }
+
+  if (message.content.includes("I hate you")) {
+    message.reply(`*silent robotic plotting*`);
+    message.channel.send({ files: ["./Assets/skynet.gif"] });
   }
 });
 
