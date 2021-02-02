@@ -87,17 +87,17 @@ bot.on("message", async (message) => {
 
   if (message.content === '!watch') {
     const Embed = new Discord.MessageEmbed();
-    const onlineUsers = []
-    const offlineUsers = []
-    let online = message.guild.members.cache.filter(member => member.presence.status !== "offline")
-    let offline = message.guild.members.cache.filter(member => member.presence.status === "offline")
-    onlineUsers.push(online)
-    offlineUsers.push(offline)
+    var i;
+    var online = 0
+    for (i = 0; i < Discord.Guild.members.length; i++){
+      if (Discord.Guild.members.cache.filter(m => m.presence.status === "online")){
+       online++ 
+      }
+    }
         Embed.setTitle(`Server Stats`)
-        // Using Collection.filter() to separate the online members from the offline members.
-        Embed.addField("Online Members", onlineUsers.length);
-        Embed.addField("Offline Members", offlineUsers.length);
-    message.channel.send(Embed).then(onlineUsers = []).finally(offlineUsers = [])
+        Embed.addField("Online Members", online);
+        // Embed.addField("Offline Members", offlineUsers.length);
+    message.channel.send(Embed)
   }
 
   if (message.content === '!quote') {
