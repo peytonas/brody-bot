@@ -88,7 +88,7 @@ bot.on("message", async (message) => {
   if (message.content === '!watch') {
     const Embed = new Discord.MessageEmbed();
     const onlineMembers = message.guild.members.cache.filter(m => m.presence.status !== 'offline')
-    console.log(onlineMembers.size);
+    console.log(onlineMembers.size += 1);
       onlineMembers.map
         Embed.setTitle(`Server Stats`)
         Embed.addField("Online Members", onlineMembers.length);
