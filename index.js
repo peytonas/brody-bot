@@ -48,13 +48,6 @@ let gifs = [
   "./Assets/dk_shake.gif",
 ];
 
-let hypeGifs = [
-  "./Assets/hype.gif",
-  "./Assets/yasQueen.gif",
-  "./Assets/nk_smile.gif",
-  "./Assets/nk_arya_high5.gif",
-];
-
 let badNewsGifs = [
   "./Assets/bears.gif",
   "./Assets/hoover.jpg",
@@ -90,6 +83,23 @@ bot.on("ready", async () => {
 });
 
 bot.on("message", async (message) => {
+
+  if (msg.content === '.quote') {
+      request('http://inspirobot.me/api?generate=true', function (error, response, body) {
+      if (!error && response.statusCode == 200) {
+        msg.channel.send({
+          embed: {
+            color: 0xff0000,
+            description: "Did you know...🧐",
+            image: {
+              url: body
+            }
+          }
+        });
+      }
+    });
+  }
+
   if (message.content === "hot" || message.content === "Hot") {
     let i = getRandomInt(5);
     message.channel.send({ files: [hotGifs[i]] });
@@ -135,7 +145,7 @@ bot.on("message", async (message) => {
     message.content.includes("Chalooby") ||
     message.content.includes("chalooby")
   ) {
-    message.reply("You rang, sir?");
+    message.reply("you rang, sir?");
   }
 
   if (
@@ -147,24 +157,12 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/F.gif"] });
   }
 
-  if (
-    message.content.includes("batman") ||
-    message.content.includes("Batman")
-  ) {
-    message.channel.send({ files: ["./Assets/bat_signal.gif"] });
-  }
-
   if (message.content.includes("zaddy") || message.content.includes("Zaddy")) {
     message.channel.send({ files: ["./Assets/zaddy.gif"] });
   }
 
   if (message.content.includes("Hehe") || message.content.includes("hehe")) {
     message.channel.send({ files: ["./Assets/thatsWhatSheSaid.gif"] });
-  }
-
-  if (message.content.includes("yas") || message.content.includes("Yas")) {
-    let i = getRandomInt(4);
-    message.channel.send({ files: [hypeGifs[i]] });
   }
 
   if (
@@ -204,30 +202,12 @@ bot.on("message", async (message) => {
   }
 
   if (
-    message.content.includes("grumpy") ||
-    message.content.includes("Grumpy")
-  ) {
-    message.channel.send({ files: ["./Assets/grumpy_aku.gif"] });
-  }
-
-  if (
     message.content.includes("suspicious") ||
     message.content.includes("Suspicious") ||
     message.content.includes("Sketchy") ||
-    message.content.includes("sketchy") ||
-    message.content.includes("Sketch") ||
-    message.content.includes("sketch")
+    message.content.includes("sketchy")
   ) {
     message.channel.send({ files: ["./Assets/suspicious.gif"] });
-  }
-
-  if (
-    message.content.includes("Unfortunate") ||
-    message.content.includes("unfortunate") ||
-    message.content.includes("Disappointing") ||
-    message.content.includes("disappointing")
-  ) {
-    message.channel.send({ files: ["./Assets/dk_shake.gif"] });
   }
 });
 
