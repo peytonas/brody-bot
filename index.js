@@ -86,14 +86,13 @@ bot.on("ready", async () => {
 bot.on("message", async (message) => {
 
   if (message.content === '!watch') {
-    if (message.content.toLowerCase() == "stats") {
+    i
         const Embed = new discord.MessageEmbed();
         Embed.setTitle(`Server Stats`)
         // Using Collection.filter() to separate the online members from the offline members.
         Embed.addField("Online Members", message.guild.members.cache.filter(member => member.presence.status !== "offline").size);
         Embed.addField("Offline Members", message.guild.members.cache.filter(member => member.presence.status == "offline").size);
         message.channel.send(Embed);
-    };
   }
 
   if (message.content === '!quote') {
