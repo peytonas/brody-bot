@@ -72,6 +72,11 @@ let grossGifs = [
   "./Assets/sausage.gif",
 ];
 
+let jokes = [
+  "I saw yo mama fall down the other day. It wasn't that funny to me...||But the sidewalk cracked up!||",
+  "I'm not very funny so I have no idea. ||Who am I kidding, I'm hilarious.||"
+]
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -199,9 +204,11 @@ bot.on("message", async (message) => {
     message.content.includes("Tell me a joke") ||
     message.content.includes("tell me a joke")
   ) {
-    message.channel.send("I saw yo mama fall down the other day...");
-    message.channel.send("It wasn't that funny to me...");
-    message.channel.send("But the sidewalk cracked up!");
+    let i = getRandomInt(2);
+    message.channel.send("Let's see...")
+    setTimeout(function () {
+      message.channel.send({ files: [jokes[i]] });
+    }, 3000);
   }
 
   if (message.content.includes("I love you")) {
