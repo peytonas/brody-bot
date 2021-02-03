@@ -207,7 +207,7 @@ bot.on("message", async (message) => {
     let i = getRandomInt(2);
     message.channel.send("Let's see...")
     setTimeout(function () {
-      message.channel.send({ files: [jokes[i]] });
+      message.channel.send(jokes[i]);
     }, 3000);
   }
 
