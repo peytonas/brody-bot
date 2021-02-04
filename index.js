@@ -88,14 +88,22 @@ let jokes = [
   "There have been rumors Chuck Norris' tears can cure COVID. Too bad he's never cried.",
   "Chuck Norris had sex with Optimus Prime and invented dubstep.",
   "Chuck Norris once urinated in a semi truck's gas tank. That truck is now known as Optimus Prime.",
-  "Chuck Norris doesn't flush the toilet, he scares the sh*t out of it."
+  "Chuck Norris doesn't flush the toilet, he scares the sh*t out of it.",
+  "My AI friend made this one up...What do you call a cat does it take to screw in a light bulb? ||They could worry the banana.||",
+  "My AI friend made this one up...What did the new ants say after a dog? ||It was a pirate.||",
+  "My AI friend made this one up...Why did the monsters change a lightbulb? ||And a cow the cough.||",
+  "My AI friend made this one up...What do you call a pastor cross the road? ||He take the chicken.||",
+  "My AI friend made this one up...What do you call a farts of tea? ||He was calling the game of the dry.||",
+  `A teenage boy is getting ready to take his girlfriend to the prom. 
+  First he goes to rent a tux, but there's a huge tux line at the shop so it took forever. 
+  Next he went to pick up the flowers, so he heads over to the florist and there's a huge line for flowers too. He waits forever, but eventually he gets the flowers. 
+  Then he heads out to rent a limo. The limo line at the rental office is large too, but he's patient and gets the job done. 
+  Finally, the day of prom arrives. The two are dancing happily and his girlfriend is having a great time. When the song is over, she asks him to get her some punch, so he heads over to the punch table and he gets some punch.`
 ]
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-
-//REVIEW Chalooby-Bot status
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
@@ -218,7 +226,7 @@ bot.on("message", async (message) => {
     message.content.includes("Tell me a joke") ||
     message.content.includes("tell me a joke")
   ) {
-    let i = getRandomInt(16);
+    let i = getRandomInt(22);
     message.channel.send("Let's see...")
     setTimeout(function () {
       message.channel.send(jokes[i]);
