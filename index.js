@@ -94,11 +94,7 @@ let jokes = [
   "My AI friend made this one up...Why did the monsters change a lightbulb? ||And a cow the cough.||",
   "My AI friend made this one up...What do you call a pastor cross the road? ||He take the chicken.||",
   "My AI friend made this one up...What do you call a farts of tea? ||He was calling the game of the dry.||",
-  `A teenage boy is getting ready to take his girlfriend to the prom. 
-  First he goes to rent a tux, but there's a huge tux line at the shop so it took forever. 
-  Next he went to pick up the flowers, so he heads over to the florist and there's a huge line for flowers too. He waits forever, but eventually he gets the flowers. 
-  Then he heads out to rent a limo. The limo line at the rental office is large too, but he's patient and gets the job done. 
-  Finally, the day of prom arrives. The two are dancing happily and his girlfriend is having a great time. When the song is over, she asks him to get her some punch, so he heads over to the punch table and he gets some punch.`
+  "A teenage boy is getting ready to take his girlfriend to the prom. First he goes to rent a tux, but there's a huge tux line at the shop so it took forever. Next he went to pick up the flowers, so he heads over to the florist and there's a huge line for flowers too. He waits forever, but eventually he gets the flowers. Then he heads out to rent a limo. The limo line at the rental office is large too, but he's patient and gets the job done. Finally, the day of prom arrives. The two are dancing happily and his girlfriend is having a great time. When the song is over, she asks him to get her some punch, so he heads over to the punch table and he gets some punch."
 ]
 
 function getRandomInt(max) {
