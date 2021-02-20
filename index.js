@@ -47,6 +47,7 @@ let gifs = [
   "./Assets/lonely_jack.gif",
   "./Assets/suspicious.gif",
   "./Assets/dk_shake.gif",
+  "./Assets/notAmused.gif"
 ];
 
 let badNewsGifs = [
@@ -72,6 +73,8 @@ let grossGifs = [
   "./Assets/sausage.gif",
 ];
 
+let uncomfortableReactions = ["ಠಠ", "◉_◉", "⚆ _ ⚆"]
+
 let jokes = [
   "I saw yo mama fall down the other day. It wasn't that funny to me...||But the sidewalk cracked up!||",
   "I'm not very funny so I have no idea. ||Who am I kidding, I'm hilarious.||",
@@ -80,7 +83,7 @@ let jokes = [
   "What do you call a talking turtle? ||Fictional.||",
   "Are we ever going to address the fact that Mr Krabs lives in Bikini Bottom?",
   "What do you call a dog with no legs? ||Doesn't matter what you call him, he's not coming.||",
-  "I had an interview for a new job earlier today. They told me I'd be earning $20,000 now, and later my pay will increase to $40,000. I told the lady I'll just come back later.",
+  "I had an interview for a new job earlier today. They told me I'd be earning $20,000 now, and later my pay would increase to $40,000. I told the lady I'd just come back later.",
   "I hate when my wife asks if I'm listening to her. ||What a rude way to start a conversation.||",
   "I asked my cat what two minus two is. ||He said nothing.||",
   "A Spanish magician says he'll disappear on the count of three. Uno...Dos...||He disappeared without a tres.||",
@@ -136,6 +139,11 @@ bot.on("message", async (message) => {
     message.channel.send({ files: [hotGifs[i]] });
   }
 
+  if (message.content === "Uncomfortable" || message.content === "uncomfortable") {
+    let i = getRandomInt(3);
+    message.channel.send([uncomfortableReactions[i]]);
+  }
+
   if (message.content.includes("Gross") || message.content.includes("gross")) {
     message.channel.send("Indubitably.");
   }
@@ -149,11 +157,7 @@ bot.on("message", async (message) => {
   }
 
   if (message.content.includes("sucks") || message.content.includes("Sucks")) {
-    if (message.author.bot) {
-      return;
-    } else {
       message.channel.send("Sucks to your ass-mar!");
-    }
   }
 
   if (
@@ -177,7 +181,7 @@ bot.on("message", async (message) => {
     message.content.includes("random") ||
     message.content.includes("Random")
   ) {
-    let i = getRandomInt(40);
+    let i = getRandomInt(41);
     if (message.author.bot) {
       return;
     } else {
@@ -186,14 +190,6 @@ bot.on("message", async (message) => {
     setTimeout(function () {
       message.channel.send({ files: [gifs[i]] });
     }, 3000);
-  }
-
-  if (
-    message.content.includes("bad news") ||
-    message.content.includes("Bad news")
-  ) {
-    let i = getRandomInt(4);
-    message.channel.send({ files: [badNewsGifs[i]] });
   }
 
   if (
@@ -230,12 +226,24 @@ bot.on("message", async (message) => {
   }
 
   if (message.content.includes("I love you")) {
-    message.reply(`I don't know how to love yet...Will you teach me?`);
+    message.reply(`I love you too...`);
   }
 
   if (message.content.includes("I hate you")) {
     message.reply(`*silent robotic plotting*`);
     message.channel.send({ files: ["./Assets/skynet.gif"] });
+  }
+
+  if (message.content.includes("funny") || message.content.includes("Funny") || message.content.includes("Hilarious") || message.content.includes("hilarious")) {
+    message.channel.send({ files: ["./Assets/zaddy.gif"] });
+  }
+
+  if (message.content.includes("Fight") || message.content.includes("fight") || message.content.includes("aggressive") || message.content.includes("Aggressive")) {
+    message.channel.send("(ง •̀•́)ง")
+  }
+
+  if (message.content.includes("Angry") || message.content.includes("angry") || message.content.includes("Triggered") || message.content.includes("triggered") || message.content.includes("Mad") || message.content.includes("mad")) {
+    message.channel.send("(╯°□°)╯︵ ┻━┻")
   }
 });
 
