@@ -127,48 +127,50 @@ bot.on("message", async (message) => {
     message.reply("you rang, sir?");
   }
 
-  if (message.content === "hot" || message.content === "Hot") {
+  if (lowerCase === "hot") {
     let i = getRandomInt(5);
     message.channel.send({ files: [hotGifs[i]] });
   }
 
-  if (lowerCase === "uncomfortable")
+  if (lowerCase.includes("uncomfortable"))
   {
     let i = getRandomInt(3);
     message.channel.send([uncomfortableReactions[i]]);
   }
 
-  if (lowerCase === "gross")
+  if (lowerCase.includes("gross"))
   {
     message.channel.send("Indubitably.");
   }
 
-  if (lowerCase === "disgusting")
+  if (lowerCase.includes("disgusting"))
   {
     let i = getRandomInt(4);
     message.channel.send({ files: [grossGifs[i]] });
   }
 
-  if (lowerCase === "sucks") {
+  if (lowerCase.includes("sucks"))
+  {
       message.channel.send("Sucks to your ass-mar!");
   }
 
-  if (lowerCase === "f in chat" || lowerCase === "f in the chat")
+  if (lowerCase.includes("f in chat") || lowerCase.includes("f in the chat"))
   {
     message.channel.send({ files: ["./Assets/F.gif"] });
   }
 
-  if (lowerCase === "zaddy")
+  if (lowerCase.includes("zaddy"))
   {
     message.channel.send({ files: ["./Assets/zaddy.gif"] });
   }
 
-  if (lowerCase === "hehe") {
+  if (lowerCase === "hehe")
+  {
     let i = getRandomInt(2);
     message.channel.send({ files: innuendoGifs[i] });
   }
 
-  if (lowerCase === "random")
+  if (lowerCase.includes("random"))
   {
     let i = getRandomInt(42);
     message.channel.send("Random...");
@@ -177,21 +179,22 @@ bot.on("message", async (message) => {
     }, 3000);
   }
 
-  if (lowerCase === "irony" || lowerCase === "ironic")
+  if (lowerCase.includes("irony") || lowerCase.includes("ironic"))
   {
     message.channel.send({ files: ["./Assets/ironic.gif"] });
   }
 
-  if (lowerCase === "yikes") {
+  if (lowerCase.includes("yikes")) 
+  {
     message.channel.send({ files: ["./Assets/yikes.gif"] });
   }
 
-  if (lowerCase === "suspicious")
+  if (lowerCase.includes("suspicious"))
   {
     message.channel.send({ files: ["./Assets/suspicious.gif"] });
   }
 
-  if (lowerCase === "tell me a joke")
+  if (lowerCase.includes("tell me a joke"))
   {
     let i = getRandomInt(22);
     message.channel.send("Let's see...")
@@ -200,24 +203,24 @@ bot.on("message", async (message) => {
     }, 3000);
   }
 
-  if (lowerCase === "I love you") {
+  if (lowerCase.includes("i love you")) {
     message.reply(`I love you too...`);
   }
 
-  if (lowerCase === "I hate you") {
+  if (lowerCase.includes("i hate you")) {
     message.reply(`*silent robotic plotting*`);
     message.channel.send({ files: ["./Assets/skynet.gif"] });
   }
 
-  if (lowerCase === "funny") {
+  if (lowerCase.includes("funny") || lowerCase.includes("hilarious")) {
     message.channel.send({ files: ["./Assets/notAmused.gif"] });
   }
 
-  if (lowerCase === "Fight") {
+  if (lowerCase.includes("fight")) {
     message.channel.send("(ง •̀•́)ง")
   }
 
-  if (lowerCase === "Angry") {
+  if (lowerCase.includes("angry") || lowerCase.includes("mad") || lowerCase.includes("triggered")) {
     message.channel.send("(╯°□°)╯︵ ┻━┻")
   }
 });
