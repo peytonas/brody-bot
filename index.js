@@ -132,24 +132,24 @@ bot.on("message", async (message) => {
     message.channel.send({ files: [hotGifs[i]] });
   }
 
-  if (lowerCase === "Uncomfortable") || lowerCase === "uncomfortable")) {
+  if (lowerCase === "uncomfortable")
+  {
     let i = getRandomInt(3);
     message.channel.send([uncomfortableReactions[i]]);
   }
 
-  if (lowerCase === "Gross") || lowerCase === "gross")) {
+  if (lowerCase === "gross")
+  {
     message.channel.send("Indubitably.");
   }
 
-  if (
-    lowerCase === "Disgusting") ||
-    lowerCase === "disgusting")
-  ) {
+  if (lowerCase === "disgusting")
+  {
     let i = getRandomInt(4);
     message.channel.send({ files: [grossGifs[i]] });
   }
 
-  if (lowerCase === "sucks") || lowerCase === "Sucks")) {
+  if (lowerCase === "sucks") {
       message.channel.send("Sucks to your ass-mar!");
   }
 
