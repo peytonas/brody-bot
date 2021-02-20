@@ -66,6 +66,8 @@ let hotGifs = [
   "./Assets/tyrion.gif",
 ];
 
+let innuendoGifs = ["./Assets/thatsWhatSheSaid.gif", "./Assets/nameOfYourSexTape.gif"]
+
 let grossGifs = [
   "./Assets/flybarf.gif",
   "./Assets/theFly.jpg",
@@ -173,20 +175,17 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/zaddy.gif"] });
   }
 
-  if (message.content.includes("Hehe") || message.content.includes("hehe")) {
-    message.channel.send({ files: ["./Assets/thatsWhatSheSaid.gif"] });
+  if (message.content.toLowerCase === "hehe") {
+    let i = getRandomInt(2);
+    message.channel.send({ files: innuendoGifs[i] });
   }
 
   if (
     message.content.includes("random") ||
     message.content.includes("Random")
   ) {
-    let i = getRandomInt(41);
-    if (message.author.bot) {
-      return;
-    } else {
+    let i = getRandomInt(42);
     message.channel.send("Random...");
-    }
     setTimeout(function () {
       message.channel.send({ files: [gifs[i]] });
     }, 3000);
