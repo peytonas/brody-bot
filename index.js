@@ -112,8 +112,8 @@ bot.on("ready", async () => {
 });
 
 bot.on("message", async (message) => {
-
-  if (message.content === '!quote') {
+  var lowerCase = message.content.toLowerCase()
+  if (lowerCase.content === '!quote') {
       request('http://inspirobot.me/api?generate=true', function (error, response, body) {
       if (!error && response.statusCode == 200) {
         message.channel.send({
@@ -130,8 +130,7 @@ bot.on("message", async (message) => {
   }
 
   if (
-    message.content.includes("Chalooby") ||
-    message.content.includes("chalooby")
+    lowerCase.content.includes("chalooby")
   ) {
     message.reply("you rang, sir?");
   }
@@ -141,7 +140,7 @@ bot.on("message", async (message) => {
     message.channel.send({ files: [hotGifs[i]] });
   }
 
-  if (message.content === "Uncomfortable" || message.content === "uncomfortable") {
+  if (message.content.includes("Uncomfortable") || message.content.includes("uncomfortable")) {
     let i = getRandomInt(3);
     message.channel.send([uncomfortableReactions[i]]);
   }
@@ -175,7 +174,7 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/zaddy.gif"] });
   }
 
-  if (message.content.toLowerCase === "hehe") {
+  if (lowerCase.content === "hehe") {
     let i = getRandomInt(2);
     message.channel.send({ files: innuendoGifs[i] });
   }
