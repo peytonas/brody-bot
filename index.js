@@ -113,7 +113,7 @@ bot.on("ready", async () => {
 
 bot.on("message", async (message) => {
   var lowerCase = message.content.toLowerCase()
-  if (lowerCase.content === '!quote') {
+  if (lowerCase === '!quote') {
       request('http://inspirobot.me/api?generate=true', function (error, response, body) {
       if (!error && response.statusCode == 200) {
         message.channel.send({
