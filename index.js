@@ -235,7 +235,7 @@ bot.on("message", async (message) => {
   }
 
   if (message.content.includes("funny") || message.content.includes("Funny") || message.content.includes("Hilarious") || message.content.includes("hilarious")) {
-    message.channel.send({ files: ["./Assets/zaddy.gif"] });
+    message.channel.send({ files: ["./Assets/notAmused.gif"] });
   }
 
   if (message.content.includes("Fight") || message.content.includes("fight") || message.content.includes("aggressive") || message.content.includes("Aggressive")) {
