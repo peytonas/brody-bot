@@ -171,7 +171,7 @@ bot.on("message", async (message) => {
   if (lowerCase === "hehe")
   {
     let i = getRandomInt(2);
-    message.channel.send({ files: innuendoGifs[i] });
+    message.channel.send({ files: [innuendoGifs[i]] });
   }
 
   if (lowerCase.includes("random"))
