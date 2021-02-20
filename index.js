@@ -151,7 +151,11 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("sucks"))
   {
+    if (message.author.bot) {
+      return;
+    } else {
       message.channel.send("Sucks to your ass-mar!");
+    }
   }
 
   if (lowerCase.includes("f in chat") || lowerCase.includes("f in the chat"))
