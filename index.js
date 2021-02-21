@@ -56,6 +56,7 @@ let hotGifs = [
   "./Assets/littlefinger.gif",
   "./Assets/stefonyes.gif",
   "./Assets/tyrion.gif",
+  "./Assets/notAmused.gif"
 ];
 
 let innuendoGifs = ["./Assets/thatsWhatSheSaid.gif", "./Assets/nameOfYourSexTape.gif"]
@@ -128,13 +129,13 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase === "hot") {
-    let i = getRandomInt(5);
+    let i = getRandomInt(hotGifs.length);
     message.channel.send({ files: [hotGifs[i]] });
   }
 
   if (lowerCase.includes("uncomfortable"))
   {
-    let i = getRandomInt(3);
+    let i = getRandomInt(uncomfortableReactions.length);
     message.channel.send([uncomfortableReactions[i]]);
   }
 
@@ -145,7 +146,7 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("disgusting"))
   {
-    let i = getRandomInt(4);
+    let i = getRandomInt(grossGifs.length);
     message.channel.send({ files: [grossGifs[i]] });
   }
 
@@ -170,13 +171,13 @@ bot.on("message", async (message) => {
 
   if (lowerCase === "hehe")
   {
-    let i = getRandomInt(2);
+    let i = getRandomInt(innuendoGifs.length);
     message.channel.send({ files: [innuendoGifs[i]] });
   }
 
   if (lowerCase.includes("random"))
   {
-    let i = getRandomInt(42);
+    let i = getRandomInt(gifs.length);
     message.channel.send("Random...");
     setTimeout(function () {
       message.channel.send({ files: [gifs[i]] });
@@ -193,14 +194,14 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/yikes.gif"] });
   }
 
-  if (lowerCase.includes("suspicious"))
+  if (lowerCase.includes("suspicious") || lowerCase.includes("sketchy"))
   {
     message.channel.send({ files: ["./Assets/suspicious.gif"] });
   }
 
   if (lowerCase.includes("tell me a joke"))
   {
-    let i = getRandomInt(22);
+    let i = getRandomInt(jokes.length);
     message.channel.send("Let's see...")
     setTimeout(function () {
       message.channel.send(jokes[i]);
@@ -216,7 +217,7 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/skynet.gif"] });
   }
 
-  if (lowerCase.includes("funny") || lowerCase.includes("hilarious")) {
+  if (lowerCase.includes("good one") || lowerCase.includes("hilarious") || lowerCase.includes("entertaining") || lowerCase.includes("entertained") ||lowerCase.includes("amused") || lowerCase.includes("amusing")) {
     message.channel.send({ files: ["./Assets/notAmused.gif"] });
   }
 
