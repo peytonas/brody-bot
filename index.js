@@ -246,7 +246,7 @@ bot.on("message", async (message) => {
         lowerCase = lowerCaseStringArray[i]
       }
     }
-    if (message.type === link) {
+    if (message.type.link) {
       return;
     }
     if (message.author.bot) {
