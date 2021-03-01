@@ -144,6 +144,7 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("hot")) {
+    random()
     message.channel.send(random.data.data.bitly_url)
     }
 
