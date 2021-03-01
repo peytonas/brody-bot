@@ -246,16 +246,18 @@ bot.on("message", async (message) => {
         lowerCase = lowerCaseStringArray[i]
       }
     }
-    if (message.type.link && !message.author.bot) {
-      return;
-    }
+
     if (message.author.bot) {
       return;
-    } else {
-      message.channel.send("This one?")
-      setTimeout(function () {
-        message.channel.send("https://www.reddit.com/" + lowerCase)
-      }, 3000);
+    }
+    
+    else if (message.type.url) {
+      if (message.author.bot === false) {
+        message.channel.send("This one?")
+        setTimeout(function () {
+          message.channel.send("https://www.reddit.com/" + lowerCase)
+        }, 3000);
+      }
     }
   }
 });
