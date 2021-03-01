@@ -229,11 +229,17 @@ bot.on("message", async (message) => {
     message.channel.send("(ง •̀•́)ง")
   }
 
-  if (lowerCase.includes("angry") || lowerCase.includes("mad ") || lowerCase.includes("triggered")) {
+  if (lowerCase.includes("angry") || lowerCase.includes("mad") && lowerCase.("") || lowerCase.includes("triggered")) {
     message.channel.send("(╯°□°)╯︵ ┻━┻")
   }
 
   if (lowerCase.includes("r/")) {
+    lowerCase.split(" ")
+    for (var i in lowerCase) {
+      if (lowerCase[i].startsWith("r/")) {
+        lowerCase = lowerCase[i]
+      }
+    }
     if (message.author.bot) {
       return;
     } else {
