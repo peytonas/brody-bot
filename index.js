@@ -125,7 +125,11 @@ bot.on("message", async (message) => {
   if (
     lowerCase.includes("chalooby")
   ) {
-    message.reply("you rang, sir?");
+    if (message.author.bot) {
+      return;
+    } else {
+      message.reply("you rang, sir?");
+    }
   }
 
   if (lowerCase === "hot") {
@@ -234,12 +238,15 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("r/")) {
-    lowerCase.split(" ")
-    for (var i in lowerCase) {
-      if (lowerCase[i].startsWith("r/")) {
-        lowerCase = lowerCase[i]
+    var testArr = lowerCase.split(" ")
+    var i;
+    for (i in testArr) {
+      if (testArr[i].startsWith("r/")) {
+        lowerCase = testArr[i]
       }
     }
+    console.log(testArr);
+    console.log(lowerCase);
     if (message.author.bot) {
       return;
     } else {
