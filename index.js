@@ -52,6 +52,15 @@ let gifs = [
   "./Assets/notAmused.gif"
 ];
 
+const random = async () => {
+      try {
+        const res = await gf.random({ tag: 'hot', rating: 'r' })
+        console.log('random', res);
+      } catch (error) {
+        console.error('random', error)
+      }
+    }
+
 let hotGifs = [
   "./Assets/abed_flirt.gif",
   "./Assets/hot.gif",
@@ -135,16 +144,7 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("hot")) {
-    const random = async () => {
-      try {
-        const res = await gf.random({ tag: 'hot', rating: 'r' })
-        console.log('random', res);
-      } catch (error) {
-        console.error('random', error)
-      }
-    }
-    random()
-    message.channel.send(res.data.bitly(url))
+    message.channel.send(random.data.data.bitly_url)
     }
 
   // if (lowerCase === "hot") {
