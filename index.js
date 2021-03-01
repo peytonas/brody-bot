@@ -177,11 +177,15 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("random"))
   {
-    let i = getRandomInt(gifs.length);
-    message.channel.send("Random...");
-    setTimeout(function () {
-      message.channel.send({ files: [gifs[i]] });
-    }, 3000);
+    if (message.author.bot) {
+      return;
+    } else {
+      let i = getRandomInt(gifs.length);
+      message.channel.send("Random...");
+      setTimeout(function () {
+        message.channel.send({ files: [gifs[i]] });
+      }, 3000);
+    }
   }
 
   if (lowerCase.includes("irony") || lowerCase.includes("ironic"))
@@ -230,10 +234,14 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("r/")) {
-    message.channel.send("This one?")
-    setTimeout(function () {
-    message.channel.send("https://www.reddit.com/" + lowerCase)
-    }, 3000);
+    if (message.author.bot) {
+      return;
+    } else {
+      message.channel.send("This one?")
+      setTimeout(function () {
+        message.channel.send("https://www.reddit.com/" + lowerCase)
+      }, 3000);
+    }
   }
 });
 
