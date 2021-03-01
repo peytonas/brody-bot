@@ -1,9 +1,15 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const request = require("request");
+const axios = require("axios")
 
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
+
+var tag;
+let _gifApi = axios.create({
+  baseURL = "//api.giphy.com/v1/gifs/trending?api_key=LeMW5S9F7C5VAlirqbA4nWJTV0TQBART&tag=" + tag + "&rating=r"
+})
 
 let gifs = [
   "./Assets/bca.gif",
@@ -132,10 +138,18 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase === "hot") {
-    let i = getRandomInt(hotGifs.length);
-    message.channel.send({ files: [hotGifs[i]] });
+  if (lowerCase.includes("hot")){
+    tag = "hot"
+    _gifApi.get(tag).then(res => {
+      let gif = res.data.bitly_gif_url;
+      message.channel.send(gif)
+    })
   }
+
+  // if (lowerCase === "hot") {
+  //   let i = getRandomInt(hotGifs.length);
+  //   message.channel.send({ files: [hotGifs[i]] });
+  // }
 
   if (lowerCase.includes("uncomfortable"))
   {
