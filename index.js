@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const request = require("request");
-import { GiphyFetch } from '@giphy/js-fetch-api'
-const gf = new GiphyFetch('LeMW5S9F7C5VAlirqbA4nWJTV0TQBART')
 
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
@@ -51,15 +49,6 @@ let gifs = [
   "./Assets/dk_shake.gif",
   "./Assets/notAmused.gif"
 ];
-
-const random = async () => {
-      try {
-        const res = await gf.random({ tag: 'hot', rating: 'r' })
-        console.log('random', res);
-      } catch (error) {
-        console.error('random', error)
-      }
-    }
 
 let hotGifs = [
   "./Assets/abed_flirt.gif",
@@ -143,15 +132,10 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase.includes("hot")) {
-    random()
-    message.channel.send(random.data.data.bitly_url)
-    }
-
-  // if (lowerCase === "hot") {
-  //   let i = getRandomInt(hotGifs.length);
-  //   message.channel.send({ files: [hotGifs[i]] });
-  // }
+  if (lowerCase === "hot") {
+    let i = getRandomInt(hotGifs.length);
+    message.channel.send({ files: [hotGifs[i]] });
+  }
 
   if (lowerCase.includes("uncomfortable"))
   {
