@@ -225,8 +225,15 @@ bot.on("message", async (message) => {
     message.channel.send("(ง •̀•́)ง")
   }
 
-  if (lowerCase.includes("angry") || lowerCase.includes("mad") || lowerCase.includes("triggered")) {
+  if (lowerCase.includes("angry") || lowerCase.includes("mad ") || lowerCase.includes("triggered")) {
     message.channel.send("(╯°□°)╯︵ ┻━┻")
+  }
+
+  if (lowerCase.includes("r/")) {
+    message.channel.send("This one?")
+    setTimeout(function () {
+    message.channel.send("https://www.reddit.com/" + lowerCase)
+    }, 3000);
   }
 });
 
