@@ -136,7 +136,8 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("hot")) {
-    const {data: gif} = await gf.random({tag: 'hot', rating: 'r'})
+    const { data: gif } = await gf.random({ tag: 'hot', rating: 'r' })
+    console.log(gif);
     message.channel.send(gif)
     }
 
