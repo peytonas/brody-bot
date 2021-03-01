@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const request = require("request");
-const giphy = require('giphy-api')('LeMW5S9F7C5VAlirqbA4nWJTV0TQBART')
 import { GiphyFetch } from '@giphy/js-fetch-api'
 const gf = new GiphyFetch('LeMW5S9F7C5VAlirqbA4nWJTV0TQBART')
 
@@ -136,9 +135,16 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("hot")) {
-    const { data: gif } = await gf.random({ tag: 'hot', rating: 'r' })
-    console.log(gif);
-    message.channel.send(gif)
+    const random = async () => {
+      try {
+        const res = await gf.random({ tag: 'hot', rating: 'r' })
+        console.log('random', res);
+      } catch (error) {
+        console.error('random', error)
+      }
+    }
+    random()
+    message.channel.send(res.data.bitly(url))
     }
 
   // if (lowerCase === "hot") {
