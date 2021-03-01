@@ -139,7 +139,7 @@ bot.on("message", async (message) => {
       rating: 'r',
       fmt: 'json'
     }, function (err, res) {
-        
+        console.log(res.data.bitly_url);
     })
     message.channel.send(res.data.bitly_url)
     }
