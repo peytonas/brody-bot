@@ -245,7 +245,6 @@ bot.on("message", async (message) => {
         lowerCase = lowerCaseStringArray[i]
       }
     }
-
     if (message.author.bot) {
       return;
     } else if (lowerCase.includes(".com")){
