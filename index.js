@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const { link } = require("ffmpeg-static");
 const bot = new Discord.Client();
 const request = require("request");
 
@@ -249,15 +248,13 @@ bot.on("message", async (message) => {
 
     if (message.author.bot) {
       return;
-    }
-    
-    else if (message.type.url) {
-      if (message.author.bot === false) {
-        message.channel.send("This one?")
-        setTimeout(function () {
-          message.channel.send("https://www.reddit.com/" + lowerCase)
-        }, 3000);
-      }
+    } else if (lowerCase.includes(".com")){
+      return;
+    } else {
+      message.channel.send("This one?")
+      setTimeout(function () {
+        message.channel.send("https://www.reddit.com/" + lowerCase)
+      }, 3000);
     }
   }
 });
