@@ -229,7 +229,7 @@ bot.on("message", async (message) => {
     message.channel.send("(ง •̀•́)ง")
   }
 
-  if (lowerCase.includes("angry") || lowerCase.includes("mad") && lowerCase.("") || lowerCase.includes("triggered")) {
+  if (lowerCase.includes("angry") || lowerCase.includes("mad") || lowerCase.includes("triggered")) {
     message.channel.send("(╯°□°)╯︵ ┻━┻")
   }
 
