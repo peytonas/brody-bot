@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const { link } = require("ffmpeg-static");
 const bot = new Discord.Client();
 const request = require("request");
 
@@ -238,15 +239,16 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("r/")) {
-    var testArr = lowerCase.split(" ")
+    var lowerCaseStringArray = lowerCase.split(" ")
     var i;
-    for (i in testArr) {
-      if (testArr[i].startsWith("r/")) {
-        lowerCase = testArr[i]
+    for (i in lowerCaseStringArray) {
+      if (lowerCaseStringArray[i].startsWith("r/")) {
+        lowerCase = lowerCaseStringArray[i]
       }
     }
-    console.log(testArr);
-    console.log(lowerCase);
+    if (message.type === link) {
+      return;
+    }
     if (message.author.bot) {
       return;
     } else {
