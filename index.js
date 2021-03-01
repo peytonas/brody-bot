@@ -138,7 +138,8 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase.includes("hot")){
+  if (lowerCase.includes("hot")) {
+    console.log(tag);
     tag = "hot"
     _gifApi.get(tag).then(res => {
       let gif = res.data.bitly_gif_url;
