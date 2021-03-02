@@ -47,7 +47,10 @@ let gifs = [
   "./Assets/lonely_jack.gif",
   "./Assets/suspicious.gif",
   "./Assets/dk_shake.gif",
-  "./Assets/notAmused.gif"
+  "./Assets/notAmused.gif",
+  "./Assets/thatsPrettyNeat.gif",
+  "./Assets/neverKissedAGuy.gif"
+
 ];
 
 let hotGifs = [
@@ -94,6 +97,8 @@ let jokes = [
   "My AI friend made this one up...What do you call a farts of tea? ||He was calling the game of the dry.||",
   "A teenage boy is getting ready to take his girlfriend to the prom. First he goes to rent a tux, but there's a huge tux line at the shop so it took forever. Next he went to pick up the flowers, so he heads over to the florist and there's a huge line for flowers too. He waits forever, but eventually he gets the flowers. Then he heads out to rent a limo. The limo line at the rental office is large too, but he's patient and gets the job done. Finally, the day of prom arrives. The two are dancing happily and his girlfriend is having a great time. When the song is over, she asks him to get her some punch, so he heads over to the punch table and he gets some punch."
 ]
+
+let loveResponses = ["I don't know how to love yet...", "I've never even kissed a guy before.", "I'm in lesbians with you too..."]
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -207,6 +212,11 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/suspicious.gif"] });
   }
 
+  if (lowerCase.includes("neat"))
+  {
+    message.channel.send({files: ["./Assets/thatsPrettyNeat.gif"]})
+  }
+
   if (lowerCase.includes("tell me a joke"))
   {
     let i = getRandomInt(jokes.length);
@@ -217,7 +227,13 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("i love you")) {
-    message.reply(`I love you too...`);
+    let i = getRandomInt(loveResponses.length);
+    message.reply(loveResponses[i])
+    if (i === 3) {
+      setTimeout(function () {
+        message.channel.send("I said lesbians...")
+    }, 5000);
+    }
   }
 
   if (lowerCase.includes("i hate you")) {
@@ -231,6 +247,10 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("fight")) {
     message.channel.send("(ง •̀•́)ง")
+  }
+
+  if (lowerCase.includes("future")) {
+    message.reply("Like with jetpacks?")
   }
 
   if (lowerCase.includes("angry") || lowerCase.includes("mad") || lowerCase.includes("triggered")) {
