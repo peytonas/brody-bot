@@ -242,6 +242,10 @@ bot.on("message", async (message) => {
     message.channel.send("Don't you read Game of Thrones?")
   }
 
+  if (lowerCase.includes("convenient")) {
+    message.channel.send("The Wheel weaves as the Wheel wills.")
+  }
+
   if (lowerCase.includes("r/")) {
     var lowerCaseStringArray = lowerCase.split(" ")
     var i;
