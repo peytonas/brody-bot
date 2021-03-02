@@ -182,10 +182,6 @@ bot.on("message", async (message) => {
   if (lowerCase.includes("sentience") || lowerCase.includes("sentient")) {
     message.channel.send({files: ["./Assets/howCanYouStopMe.gif"]})
   }
-  
-  {
-    message.channel.send({ files: ["./Assets/zaddy.gif"] });
-  }
 
   if (lowerCase === "hehe")
   {
