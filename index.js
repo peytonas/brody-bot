@@ -49,7 +49,8 @@ let gifs = [
   "./Assets/dk_shake.gif",
   "./Assets/notAmused.gif",
   "./Assets/thatsPrettyNeat.gif",
-  "./Assets/neverKissedAGuy.gif"
+  "./Assets/neverKissedAGuy.gif",
+  "./Assets/howCanYouStopMe.gif"
 
 ];
 
@@ -174,6 +175,14 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("zaddy"))
+  {
+    message.channel.send({ files: ["./Assets/zaddy.gif"] });
+  }
+
+  if (lowerCase.includes("sentience") || lowerCase.includes("sentient")) {
+    message.channel.send({files: ["./Assets/howCanYouStopMe.gif"]})
+  }
+  
   {
     message.channel.send({ files: ["./Assets/zaddy.gif"] });
   }
