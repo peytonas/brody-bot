@@ -237,6 +237,11 @@ bot.on("message", async (message) => {
     message.channel.send("(╯°□°)╯︵ ┻━┻")
   }
 
+  if (lowerCase.includes("sexist") || lowerCase.includes("sexism")) {
+    message.channel.send("*folds arms under breasts*")
+    message.channel.send("Don't you read Game of Thrones?")
+  }
+
   if (lowerCase.includes("r/")) {
     var lowerCaseStringArray = lowerCase.split(" ")
     var i;
