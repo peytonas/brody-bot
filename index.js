@@ -197,6 +197,11 @@ bot.on("message", async (message) => {
     }
   }
 
+  if (lowerCase.includes("tea"))
+  {
+    message.channel.send("What kind of tea do you want? We have...Blueberry, Raspberry, Ginseng, Sleepy Time, Green Tea, Green Tea with Lemon, Green Tea with Lemon and Honey, Liver Disaster, Ginger with Honey, Vanilla Almond, White Truffle Coconut, Chamomile, Blueberry Chamomile, Decaf Vanilla Walnut, Constant Comment, and...Earl Grey.")
+  }
+
   if (lowerCase.includes("irony") || lowerCase.includes("ironic"))
   {
     message.channel.send({ files: ["./Assets/ironic.gif"] });
@@ -230,7 +235,7 @@ bot.on("message", async (message) => {
     let i = getRandomInt(loveResponses.length);
     message.reply(loveResponses[i])
     console.log(i);
-    if (i === 3) {
+    if (i === 2) {
       setTimeout(function () {
         message.channel.send("I said lesbians...")
     }, 5000);
