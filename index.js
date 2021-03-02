@@ -242,7 +242,7 @@ bot.on("message", async (message) => {
     message.channel.send("Don't you read Game of Thrones?")
   }
 
-  if (lowerCase.includes("convenient")) {
+  if (lowerCase.includes("convenient") || lowerCase.includes("convenience")) {
     message.channel.send("The Wheel weaves as the Wheel wills.")
   }
 
