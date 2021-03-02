@@ -229,6 +229,7 @@ bot.on("message", async (message) => {
   if (lowerCase.includes("i love you")) {
     let i = getRandomInt(loveResponses.length);
     message.reply(loveResponses[i])
+    console.log(i);
     if (i === 3) {
       setTimeout(function () {
         message.channel.send("I said lesbians...")
@@ -250,7 +251,7 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("future")) {
-    message.reply("Like with jetpacks?")
+    message.reply("like with jetpacks?")
   }
 
   if (lowerCase.includes("angry") || lowerCase.includes("mad") || lowerCase.includes("triggered")) {
