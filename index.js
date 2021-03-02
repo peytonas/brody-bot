@@ -198,6 +198,9 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("tea"))
+    if (message.author.bot) {
+      return;
+    }
   {
     message.channel.send("What kind of tea do you want? We have...Blueberry, Raspberry, Ginseng, Sleepy Time, Green Tea, Green Tea with Lemon, Green Tea with Lemon and Honey, Liver Disaster, Ginger with Honey, Vanilla Almond, White Truffle Coconut, Chamomile, Blueberry Chamomile, Decaf Vanilla Walnut, Constant Comment, and...Earl Grey.")
   }
