@@ -248,7 +248,7 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase.includes("\xa0tea\xa0"))
+  if (lowerCase.includes(` tea `))
   {
     if (message.author.bot) {
       return;
