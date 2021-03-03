@@ -17,9 +17,11 @@ let _state = {
 }
 
 function getOneGif(title) {
+  console.log(tag);
+  console.log(title);
     _gifApi.get(title)
       .then(res => {
-        let giphy = new Gif(res.data)
+        let giphy = res.data
         _setState("currentGif", giphy)
         console.log(giphy);
       })
