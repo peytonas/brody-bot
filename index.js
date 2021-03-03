@@ -170,9 +170,9 @@ bot.on("message", async (message) => {
     tag = "hot"
     getOneGif('hot')
     setTimeout(function () {
-      console.log("state:", _state.currentGif.data[0].bitly_url);
+      console.log("state:", _state.currentGif.data.bitly_url);
       // console.log("gifURL:", _state.currentGif.data.data.bitly_url);
-      message.channel.send(_state.currentGif.data[0].bitly_url)
+      message.channel.send(_state.currentGif.data.bitly_url)
       }, 3000);
   }
 
