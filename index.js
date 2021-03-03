@@ -9,7 +9,7 @@ const token = process.env.BOT_TOKEN;
 var tag;
 
 let _gifApi = axios.create({
-  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=r"
+  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=" + tag + "&rating=r"
 })
 
 let _state = {
@@ -166,11 +166,12 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase === "hot") {
+    tag = "hot"
     getRandomGif()
     setTimeout(function () {
       console.log("state:", _state.currentGif);
       // console.log("gifURL:", _state.currentGif.data.data.bitly_url);
-      // message.channel.send(_state.currentGif.data.bitly_url)
+      message.channel.send(_state.currentGif.data.bitly_url)
       }, 3000);
   }
 
