@@ -20,10 +20,8 @@ function _setState(propName, data) {
   _state[propName] = data
 }
 
-function getOneGif(title) {
-  console.log(tag);
-  console.log(title);
-    _gifApi.get(title)
+function getRandomGif() {
+    _gifApi.get()
       .then(res => {
         let giphy = res.data
         _setState("currentGif", giphy)
@@ -168,8 +166,7 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase === "hot") {
-    tag = "hot"
-    getOneGif(tag)
+    getRandomGif()
     setTimeout(function () {
       console.log("state:", _state.currentGif);
       // console.log("gifURL:", _state.currentGif.data.data.bitly_url);
