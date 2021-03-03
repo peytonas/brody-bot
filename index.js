@@ -7,7 +7,7 @@ const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
 let _randomGifApi = axios.create({
-  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=r"
+  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=&rating=r"
 })
 
 let _hotGifApi = axios.create({
@@ -24,7 +24,7 @@ function _setState(propName, data) {
 }
 
 function getRandomGif() {
-    _hotGifApi.get()
+    _randomGifApi.get()
       .then(res => {
         let giphy = res.data
         _setState("currentGif", giphy)
