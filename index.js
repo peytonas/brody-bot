@@ -21,6 +21,7 @@ function _setState(propName, data) {
 }
 
 function getOneGif(title) {
+  console.log(tag);
   console.log(title);
     _gifApi.get(title)
       .then(res => {
