@@ -87,8 +87,9 @@ let gifs = [
   "./Assets/notAmused.gif",
   "./Assets/thatsPrettyNeat.gif",
   "./Assets/neverKissedAGuy.gif",
-  "./Assets/howCanYouStopMe.gif"
-
+  "./Assets/howCanYouStopMe.gif",
+  "./Assets/kronk.gif",
+  "./Assets/timeTravel.gif"
 ];
 
 let hotGifs = [
@@ -321,7 +322,16 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("future")) {
-    message.reply("like with jetpacks?")
+    let x = getRandomInt(2)
+    if (x == 0) {
+      message.reply("like with jetpacks?")
+    } else {
+      message.channel.send({files: ["./Assets/timeTravel.gif"]})
+    }
+  }
+
+  if (lowerCase.includes("I don't get it")) {
+    message.channel.send({files: ["./Assets/kronk.gif"]})
   }
 
   if (lowerCase.includes("angry") || lowerCase.includes(` mad `) || lowerCase.includes(`mad `) || lowerCase.includes(` mad`) ||owerCase.includes("triggered")) {
