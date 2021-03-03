@@ -11,7 +11,7 @@ let _randomGifApi = axios.create({
 })
 
 let _hotGifApi = axios.create({
-  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=r"
+  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=pg-13"
 })
 
 
@@ -40,8 +40,6 @@ function getHotGif() {
       })
       .catch(err => console.error(err))
   }
-
-
 
 
 let gifs = [
@@ -179,10 +177,9 @@ bot.on("message", async (message) => {
 
   if (lowerCase === "hot") {
     getHotGif()
-    message.channel.send(_state.currentGif.data.bitly_url)
-    // setTimeout(function () {
-      
-    //   }, 3000);
+    setTimeout(function () {
+      message.channel.send(_state.currentGif.data.bitly_url)
+      }, 1000);
   }
 
   // if (lowerCase === "hot") {
