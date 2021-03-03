@@ -27,7 +27,6 @@ function getOneGif(title) {
       .then(res => {
         let giphy = res.data
         _setState("currentGif", giphy)
-        console.log(giphy);
       })
       .catch(err => console.error(err))
   }
