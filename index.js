@@ -168,11 +168,11 @@ bot.on("message", async (message) => {
 
   if (lowerCase === "hot") {
     tag = "hot"
-    getOneGif('hot')
+    getOneGif(tag)
     setTimeout(function () {
-      console.log("state:", _state.currentGif.data.bitly_url);
+      console.log("state:", _state.currentGif);
       // console.log("gifURL:", _state.currentGif.data.data.bitly_url);
-      message.channel.send(_state.currentGif.data.bitly_url)
+      // message.channel.send(_state.currentGif.data.bitly_url)
       }, 3000);
   }
 
