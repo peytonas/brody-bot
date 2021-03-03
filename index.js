@@ -175,11 +175,21 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase === "hot") {
-    getHotGif()
-    setTimeout(function () {
+  if (lowerCase === "hot")
+  {
+    let x = getRandomInt(2)
+
+    if (message.author.bot) {
+      return;
+    } else if (x == 0) {
+      let i = getRandomInt(hotGifs.length);
+      message.channel.send({ files: [hotGifs[i]] });
+    } else if (x == 1) {
+      getHotGif()
+      setTimeout(function () {
       message.channel.send(_state.currentGif.data.bitly_url)
       }, 1000);
+    }
   }
 
   // if (lowerCase === "hot") {
@@ -235,15 +245,21 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("random"))
   {
+    let x = getRandomInt(2)
+
     if (message.author.bot) {
       return;
-    } else {
+    } else if (x == 0) {
       let i = getRandomInt(gifs.length);
+      message.channel.send("Random...");
+      setTimeout(function () {
+        message.channel.send({ files: [gifs[i]] });
+      })
+    } else if (x == 1){
       message.channel.send("Random...");
       getRandomGif()
       setTimeout(function () {
         message.channel.send(_state.currentGif.data.bitly_url)
-        // message.channel.send({ files: [gifs[i]] });
       }, 3000);
     }
   }
