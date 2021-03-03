@@ -192,11 +192,6 @@ bot.on("message", async (message) => {
     }
   }
 
-  // if (lowerCase === "hot") {
-  //   let i = getRandomInt(hotGifs.length);
-  //   message.channel.send({ files: [hotGifs[i]] });
-  // }
-
   if (lowerCase.includes("uncomfortable"))
   {
     let i = getRandomInt(uncomfortableReactions.length);
