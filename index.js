@@ -171,7 +171,7 @@ bot.on("message", async (message) => {
   if (lowerCase === "hot") {
     tag = "hot"
     getOneGif('hot')
-    message.channel.send(_state.currentGif.data.bitly_url)
+    message.channel.send(_state.currentGif.bitly_url)
   }
 
   // if (lowerCase === "hot") {
