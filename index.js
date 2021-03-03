@@ -21,11 +21,11 @@ function _setState(propName, data) {
 }
 
 function getOneGif(title) {
-  console.log(tag);
   console.log(title);
     _gifApi.get(title)
       .then(res => {
         let giphy = res.data
+        console.log("data:", giphy);
         _setState("currentGif", giphy)
       })
       .catch(err => console.error(err))
@@ -171,8 +171,8 @@ bot.on("message", async (message) => {
     tag = "hot"
     getOneGif('hot')
     setTimeout(function () {
-      console.log(_state.currentGif);
-      console.log(_state.currentGif.bitly_url);
+      console.log("state:", _state.currentGif);
+      console.log("gifURL:", _state.currentGif.bitly_url);
       // message.channel.send(_state.currentGif.bitly_url)
       }, 3000);
   }
