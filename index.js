@@ -9,7 +9,7 @@ const token = process.env.BOT_TOKEN;
 var tag;
 
 let _gifApi = axios.create({
-  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&q=" + tag + "&limit=1&offset=0&rating=rlang=en"
+  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=" + tag + "&rating=r"
 })
 
 let _state = {
