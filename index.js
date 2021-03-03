@@ -248,7 +248,7 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase.includes(` tea `) || lowerCase.includes(` tea`) || lowerCase.includes(`tea `))
+  if (lowerCase.matches("(?is).*\\b" + "tea" + "\\b.*"))
   {
     if (message.author.bot) {
       return;
