@@ -18,7 +18,6 @@ let _state = {
 
 function _setState(propName, data) {
   _state[propName] = data
-  _subscribers[propName].forEach(fn => fn())
 }
 
 function getOneGif(title) {
