@@ -313,7 +313,7 @@ bot.on("message", async (message) => {
     message.reply("like with jetpacks?")
   }
 
-  if (lowerCase.includes("angry") || lowerCase.includes("mad") || lowerCase.includes("triggered")) {
+  if (lowerCase.includes("angry") || lowerCase.includes(` mad `) || lowerCase.includes(`mad `) || lowerCase.includes(` mad`) ||owerCase.includes("triggered")) {
     message.channel.send("(╯°□°)╯︵ ┻━┻")
   }
 
