@@ -171,8 +171,9 @@ bot.on("message", async (message) => {
     tag = "hot"
     getOneGif('hot')
     setTimeout(function () {
-      console.log(_state.currentGif.bit);
-      message.channel.send(_state.currentGif.bitly_url)
+      console.log(_state.currentGif);
+      console.log(_state.currentGif.bitly_url);
+      // message.channel.send(_state.currentGif.bitly_url)
       }, 3000);
   }
 
