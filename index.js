@@ -6,11 +6,14 @@ const axios = require('axios');
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
-var tag;
-
-let _gifApi = axios.create({
+let _randomGifApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=r"
 })
+
+let _hotGifApi = axios.create({
+  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=r"
+})
+
 
 let _state = {
   currentGif: {}
@@ -21,7 +24,16 @@ function _setState(propName, data) {
 }
 
 function getRandomGif() {
-    _gifApi.get()
+    _hotGifApi.get()
+      .then(res => {
+        let giphy = res.data
+        _setState("currentGif", giphy)
+      })
+      .catch(err => console.error(err))
+}
+  
+function getHotGif() {
+    _hotGifApi.get()
       .then(res => {
         let giphy = res.data
         _setState("currentGif", giphy)
@@ -166,14 +178,11 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase === "hot") {
-    tag = "hot"
-    getRandomGif()
-    setTimeout(function () {
-      console.log("state:", _state.currentGif);
-      console.log(_gifApi.baseURL);
-      // console.log("gifURL:", _state.currentGif.data.data.bitly_url);
-      message.channel.send(_state.currentGif.data.bitly_url)
-      }, 3000);
+    getHotGif()
+    message.channel.send(_state.currentGif.data.bitly_url)
+    // setTimeout(function () {
+      
+    //   }, 3000);
   }
 
   // if (lowerCase === "hot") {
@@ -234,13 +243,15 @@ bot.on("message", async (message) => {
     } else {
       let i = getRandomInt(gifs.length);
       message.channel.send("Random...");
+      getRandomGif()
       setTimeout(function () {
-        message.channel.send({ files: [gifs[i]] });
+        message.channel.send(_state.currentGif.data.bitly_url)
+        // message.channel.send({ files: [gifs[i]] });
       }, 3000);
     }
   }
 
-  if (lowerCase.includes("tea"))
+  if (lowerCase.includes("\xa0tea\xa0"))
   {
     if (message.author.bot) {
       return;
