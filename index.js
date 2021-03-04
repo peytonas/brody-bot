@@ -331,7 +331,7 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("i don't get it")) {
-    message.channel.send({files: ["./Assets/kronk.gif"]})
+    message.channel.send({ files: ["./Assets/kronk.gif"] })
   }
 
   if (lowerCase.includes("angry") || lowerCase.includes(` mad `) || lowerCase.includes(`mad `) || lowerCase.includes(` mad`) ||owerCase.includes("triggered")) {
