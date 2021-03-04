@@ -327,6 +327,7 @@ bot.on("message", async (message) => {
       message.reply("like with jetpacks?")
     } else {
       message.channel.send({files: ["./Assets/timeTravel.gif"]})
+      message.channel.send({ files: ["./Assets/kronk.gif"] })
     }
   }
 
