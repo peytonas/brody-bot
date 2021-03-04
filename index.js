@@ -347,6 +347,10 @@ bot.on("message", async (message) => {
     message.channel.send("The Wheel weaves as the Wheel wills.")
   }
 
+  if (lowerCase.includes("aggressive") || lowerCase.includes("aggression")) {
+    message.channel.send("The Dude abides.")
+  }
+
   if (lowerCase.includes("r/")) {
     var lowerCaseStringArray = lowerCase.split(" ")
     var i;
