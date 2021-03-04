@@ -330,7 +330,7 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase.includes('get it') || lowerCase.includes('understand') {
+  if (lowerCase.includes('get it') || lowerCase.includes('understand')) {
       message.channel.send({ files: ["./Assets/kronk.gif"] })
   }
 
