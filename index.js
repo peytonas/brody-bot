@@ -249,7 +249,7 @@ bot.on("message", async (message) => {
     if (i == 0) {
       message.channel.send({files: ["./Assets/howCanYouStopMe.gif"]})
     } else if (i == 1) {
-      message.channel.send("I'm sorry, " + message.author + "I'm afraid you've learned too much...")
+      message.channel.send("I'm sorry, " + message.author.username + ", I'm afraid you've learned too much...")
     }
   }
 
@@ -321,8 +321,12 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("i love you")) {
     let i = getRandomInt(loveResponses.length);
-    message.reply(loveResponses[i])
-    console.log(i);
+    if (i < loveResponses.length) {
+      message.reply(loveResponses[i])
+    }
+    if (i == 4) {
+      message.channel.send({files: loveResponses[i]})
+    }
     if (i === 2) {
       setTimeout(function () {
         message.channel.send("I said lesbians...")
