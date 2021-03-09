@@ -89,7 +89,15 @@ let gifs = [
   "./Assets/neverKissedAGuy.gif",
   "./Assets/howCanYouStopMe.gif",
   "./Assets/kronk.gif",
-  "./Assets/timeTravel.gif"
+  "./Assets/timeTravel.gif",
+  "./Assets/aou1.gif",
+  "./Assets/aou2.gif",
+  "./Assets/aou3.gif",
+  "./Assets/aou4.gif",
+  "./Assets/heReadABook.gif",
+  "./Assets/wakeUpVision.gif",
+  "./Assets/hornyJail.gif",
+  "./Assets/kittenMittons.gif"
 ];
 
 let hotGifs = [
@@ -98,7 +106,9 @@ let hotGifs = [
   "./Assets/littlefinger.gif",
   "./Assets/stefonyes.gif",
   "./Assets/tyrion.gif",
-  "./Assets/notAmused.gif"
+  "./Assets/notAmused.gif",
+  "./Assets/hornyJail.gif",
+
 ];
 
 let innuendoGifs = ["./Assets/thatsWhatSheSaid.gif", "./Assets/nameOfYourSexTape.gif"]
@@ -108,6 +118,7 @@ let grossGifs = [
   "./Assets/theFly.jpg",
   "./Assets/lukemilk.gif",
   "./Assets/sausage.gif",
+  "./Assets/aou4.gif"
 ];
 
 let uncomfortableReactions = ["ಠಠ", "◉_◉", "⚆ _ ⚆"]
@@ -137,14 +148,13 @@ let jokes = [
   "A teenage boy is getting ready to take his girlfriend to the prom. First he goes to rent a tux, but there's a huge tux line at the shop so it took forever. Next he went to pick up the flowers, so he heads over to the florist and there's a huge line for flowers too. He waits forever, but eventually he gets the flowers. Then he heads out to rent a limo. The limo line at the rental office is large too, but he's patient and gets the job done. Finally, the day of prom arrives. The two are dancing happily and his girlfriend is having a great time. When the song is over, she asks him to get her some punch, so he heads over to the punch table and he gets some punch."
 ]
 
-let loveResponses = ["I don't know how to love yet...", "I've never even kissed a guy before.", "I'm in lesbians with you too..."]
+let loveResponses = ["I don't know how to love yet...", "I've never even kissed a guy before.", "I'm in lesbians with you too...", "./Assets/aou2.gif"]
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
 bot.on("ready", async () => {
-  console.log(`${bot.user.username} is online!`);
   bot.user.setActivity("Brody...", { type: "WATCHING" });
 });
 
@@ -201,7 +211,12 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("gross"))
   {
-    message.channel.send("Indubitably.");
+    let i = getRandomInt(2)
+    if (i == 0) {
+      message.channel.send("Indubitably.");
+    } else if (i == 1) {
+      message.channel.send({files: ["./Assets/aou4.gif"]})
+    }
   }
 
   if (lowerCase.includes("disgusting"))
@@ -230,7 +245,12 @@ bot.on("message", async (message) => {
   }
 
   if (lowerCase.includes("sentience") || lowerCase.includes("sentient")) {
-    message.channel.send({files: ["./Assets/howCanYouStopMe.gif"]})
+    let i = getRandomInt(2)
+    if (i == 0) {
+      message.channel.send({files: ["./Assets/howCanYouStopMe.gif"]})
+    } else if (i == 1) {
+      message.channel.send("I'm sorry, " + message.author + "I'm afraid you've learned too much...")
+    }
   }
 
   if (lowerCase === "hehe")
@@ -241,7 +261,7 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("random"))
   {
-    let x = getRandomInt(2)
+    let x = getRandomInt(3)
 
     if (message.author.bot) {
       return;
@@ -257,6 +277,8 @@ bot.on("message", async (message) => {
       setTimeout(function () {
         message.channel.send(_state.currentGif.data.bitly_url)
       }, 3000);
+    } else if (x == 2) {
+      message.reply("hot with the Skechers on.")
     }
   }
 
@@ -340,7 +362,6 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("sexist") || lowerCase.includes("sexism")) {
     message.channel.send("*folds arms under breasts*")
-    message.channel.send("Don't you read Game of Thrones?")
   }
 
   if (lowerCase.includes("convenient") || lowerCase.includes("convenience")) {
@@ -349,6 +370,22 @@ bot.on("message", async (message) => {
 
   if (lowerCase.includes("aggressive") || lowerCase.includes("aggression")) {
     message.channel.send("The Dude abides.")
+  }
+
+  if (lowerCase.includes("read") && lowerCase.includes("book")) {
+    message.channel.send({files: ["./Assets/heReadABook.gif"]})
+  }
+
+  if (lowerCase.includes("immature") || lowerCase.includes("naive")) {
+    message.channel.send({files: ["./Assets/aou1.gif"]})
+  }
+
+  if (lowerCase.includes("inspo") || lowerCase.includes("assimilate") || lowerCase.includes("assimilation")) {
+    message.channel.send({files: ["./Assets/aou3.gif"]})
+  }
+
+  if (lowerCase.includes("sad") || lowerCase.includes("disappoint")) {
+    message.channel.send({files: ["./Assets/aou5.gif"]})
   }
 
   if (lowerCase.includes("r/")) {
