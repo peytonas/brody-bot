@@ -188,7 +188,7 @@ bot.on("message", async (message) => {
 
   if (lowerCase === "hot")
   {
-    let x = getRandomInt(2)
+    let x = getRandomInt(3)
 
     if (message.author.bot) {
       return;
@@ -200,6 +200,8 @@ bot.on("message", async (message) => {
       setTimeout(function () {
       message.channel.send(_state.currentGif.data.bitly_url)
       }, 1000);
+    } else if (x == 2) {
+      message.reply("hot with the Skechers on.")
     }
   }
 
