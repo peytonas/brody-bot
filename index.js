@@ -324,7 +324,7 @@ bot.on("message", async (message) => {
   if (lowerCase.includes("i love you")) {
     let i = getRandomInt(4);
     if (i === 3) {
-      message.channel.send({files: "./Assets/aou2.gif"})
+      message.channel.send({files: ["./Assets/aou2.gif"]})
     }
     if (i < 3) {
       message.reply(loveResponses[i])
