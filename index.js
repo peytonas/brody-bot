@@ -327,7 +327,7 @@ bot.on("message", async (message) => {
       message.reply(loveResponses[i])
     }
     if (i == 4) {
-      message.channel.send({files: loveResponses[i]})
+      message.channel.send({files: "./Assets/aou2.gif"})
     }
     if (i === 2) {
       setTimeout(function () {
