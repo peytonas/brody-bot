@@ -14,6 +14,10 @@ let _hotGifApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=pg-13"
 })
 
+let _plotTwistApi = axios.create({
+  baseURL: `https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=plot twist&rating=r`
+})
+
 
 let _state = {
   currentGif: {}
@@ -31,7 +35,16 @@ function getRandomGif() {
       })
       .catch(err => console.error(err))
 }
-  
+
+function getPlotTwistGif() {
+    _randomGifApi.get()
+      .then(res => {
+        let giphy = res.data
+        _setState("currentGif", giphy)
+      })
+      .catch(err => console.error(err))
+}
+
 function getHotGif() {
     _hotGifApi.get()
       .then(res => {
@@ -203,6 +216,13 @@ bot.on("message", async (message) => {
     } else if (x == 2) {
       message.reply("hot with the Skechers on.")
     }
+  }
+
+  if (lowerCase.includes("plot twist")) {
+    getPlotTwistGif();
+    setTimeout(function () {
+      message.channel.send(_state.currentGif.data.bitly_url)
+      }, 1000);
   }
 
   if (lowerCase.includes("uncomfortable"))
