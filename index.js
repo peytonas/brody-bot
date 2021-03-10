@@ -214,7 +214,7 @@ bot.on("message", async (message) => {
       message.channel.send(_state.currentGif.data.bitly_url)
       }, 1000);
     } else if (x == 2) {
-      message.reply("hot with the Skechers on.")
+      message.reply("bad with the Skechers on.")
     }
   }
 
@@ -300,7 +300,7 @@ bot.on("message", async (message) => {
         message.channel.send(_state.currentGif.data.bitly_url)
       }, 3000);
     } else if (x == 2) {
-      message.channel.send("Shawty hot with the Skechers on.")
+      message.channel.send("Shawty bad with the Skechers on.")
     }
   }
 
