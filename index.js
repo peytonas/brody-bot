@@ -27,6 +27,8 @@ let _state = {
   currentGif: {}
 }
 
+let tag = ""
+
 function _setState(propName, data) {
   _state[propName] = data
 }
@@ -215,6 +217,7 @@ bot.on("message", async (message) => {
   if (
     lowerCase.includes(prefix + "test")
   ) {
+    tag = "test"
     if (message.author.bot) {
       return;
     } else {
