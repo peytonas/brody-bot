@@ -12,7 +12,7 @@ const token = process.env.BOT_TOKEN;
 // let sample = baseURL + tag
 
 let _randomGifApi = axios.create({
-  baseURL: "https://api.giphy.com/v1/gifs/trending?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=&rating=r"
+  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=&rating=r"
 })
 
 let _hotGifApi = axios.create({
