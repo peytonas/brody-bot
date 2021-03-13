@@ -190,7 +190,7 @@ bot.on("message", async (message) => {
   }
 
   if (
-    lowerCase.includes("chalooby")
+    lowerCase.includes(prefix + "chalooby")
   ) {
     if (message.author.bot) {
       return;
