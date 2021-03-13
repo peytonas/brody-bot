@@ -6,17 +6,13 @@ const axios = require('axios');
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
-let key = ""
-let baseURL = "https://api.giphy.com/v1/gifs/"
-let tag = `random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=${key}&rating=r`;
-let sample = baseURL + tag
+// let key = ""
+// let baseURL = "https://api.giphy.com/v1/gifs/"
+// let tag = `random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=${key}&rating=r`;
+// let sample = baseURL + tag
 
 let _randomGifApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=&rating=r"
-})
-
-let _testGifApi = axios.create({
-  baseURL: `https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=${key}&rating=r`
 })
 
 let _hotGifApi = axios.create({
@@ -45,14 +41,14 @@ function getRandomGif() {
       .catch(err => console.error(err))
 }
 
-function getTestGif() {
-    _testGifApi.get()
-      .then(res => {
-        let giphy = res.data
-        _setState("currentGif", giphy)
-      })
-      .catch(err => console.error(err))
-}
+// function getTestGif() {
+//     _testGifApi.get()
+//       .then(res => {
+//         let giphy = res.data
+//         _setState("currentGif", giphy)
+//       })
+//       .catch(err => console.error(err))
+// }
 
 function getPlotTwistGif() {
     _plotTwistApi.get()
@@ -217,21 +213,21 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (
-    lowerCase.includes(prefix + "test")
-  ) {
-    key = "sexy"
-    console.log("Key:", key);
-    console.log("Sample:", sample);
-    if (message.author.bot) {
-      return;
-    } else {
-      getTestGif()
-      setTimeout(function () {
-      message.channel.send(_state.currentGif.data.bitly_url)
-      }, 1000);
-    }
-  }
+  // if (
+  //   lowerCase.includes(prefix + "test")
+  // ) {
+  //   key = "sexy"
+  //   console.log("Key:", key);
+  //   console.log("Sample:", sample);
+  //   if (message.author.bot) {
+  //     return;
+  //   } else {
+  //     getTestGif()
+  //     setTimeout(function () {
+  //     message.channel.send(_state.currentGif.data.bitly_url)
+  //     }, 1000);
+  //   }
+  // }
 
   if (lowerCase === prefix + "hot")
   {
