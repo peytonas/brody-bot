@@ -218,6 +218,7 @@ bot.on("message", async (message) => {
     lowerCase.includes(prefix + "test")
   ) {
     tag = "test"
+    console.log(tag);
     if (message.author.bot) {
       return;
     } else {
