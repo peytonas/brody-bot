@@ -10,6 +10,10 @@ let _randomGifApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=&rating=r"
 })
 
+let _testGifApi = axios.create({
+  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=" + tag + "&rating=r"
+})
+
 let _hotGifApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=hot&rating=pg-13"
 })
@@ -29,6 +33,15 @@ function _setState(propName, data) {
 
 function getRandomGif() {
     _randomGifApi.get()
+      .then(res => {
+        let giphy = res.data
+        _setState("currentGif", giphy)
+      })
+      .catch(err => console.error(err))
+}
+
+function getTestGif() {
+    _testGifApi.get()
       .then(res => {
         let giphy = res.data
         _setState("currentGif", giphy)
@@ -190,7 +203,7 @@ bot.on("message", async (message) => {
   }
 
   if (
-    lowerCase.includes(prefix + "chalooby")
+    lowerCase.includes("chalooby")
   ) {
     if (message.author.bot) {
       return;
@@ -199,7 +212,20 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase === "hot")
+  if (
+    lowerCase.includes(prefix + "test")
+  ) {
+    if (message.author.bot) {
+      return;
+    } else {
+      getTestGif()
+      setTimeout(function () {
+      message.channel.send(_state.currentGif.data.bitly_url)
+      }, 1000);
+    }
+  }
+
+  if (lowerCase === prefix + "hot")
   {
     let x = getRandomInt(3)
 
@@ -218,7 +244,7 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase.includes("plot twist")) {
+  if (lowerCase.includes(prefix + "plot twist")) {
     getPlotTwistGif();
     setTimeout(function () {
       message.channel.send(_state.currentGif.data.bitly_url)
@@ -281,7 +307,7 @@ bot.on("message", async (message) => {
     message.channel.send({ files: [innuendoGifs[i]] });
   }
 
-  if (lowerCase.includes("random"))
+  if (lowerCase.includes(prefix + "random"))
   {
     let x = getRandomInt(3)
 
@@ -304,15 +330,15 @@ bot.on("message", async (message) => {
     }
   }
 
-  if (lowerCase.includes(` tea `) || lowerCase.includes(` tea`) || lowerCase.includes(`tea `))
-  {
-    if (message.author.bot) {
-      return;
-    }
-    message.channel.send("What kind of tea do you want? We have...Blueberry, Raspberry, Ginseng, Sleepy Time, Green Tea, Green Tea with Lemon, Green Tea with Lemon and Honey, Liver Disaster, Ginger with Honey, Vanilla Almond, White Truffle Coconut, Chamomile, Blueberry Chamomile, Decaf Vanilla Walnut, Constant Comment, and...Earl Grey.")
-  }
+  // if (lowerCase.includes(` tea `))
+  // {
+  //   if (message.author.bot) {
+  //     return;
+  //   }
+  //   message.channel.send("What kind of tea do you want? We have...Blueberry, Raspberry, Ginseng, Sleepy Time, Green Tea, Green Tea with Lemon, Green Tea with Lemon and Honey, Liver Disaster, Ginger with Honey, Vanilla Almond, White Truffle Coconut, Chamomile, Blueberry Chamomile, Decaf Vanilla Walnut, Constant Comment, and...Earl Grey.")
+  // }
 
-  if (lowerCase.includes("irony") || lowerCase.includes("ironic"))
+  if (lowerCase.includes(prefix + "irony") || lowerCase.includes(prefix + "ironic"))
   {
     message.channel.send({ files: ["./Assets/ironic.gif"] });
   }
@@ -361,7 +387,7 @@ bot.on("message", async (message) => {
     message.channel.send({ files: ["./Assets/skynet.gif"] });
   }
 
-  if (lowerCase.includes("good one") || lowerCase.includes("hilarious") || lowerCase.includes("entertaining") || lowerCase.includes("entertained") ||lowerCase.includes("amused") || lowerCase.includes("amusing")) {
+  if (lowerCase.includes("good one") || lowerCase.includes("entertaining") || lowerCase.includes("entertained") ||lowerCase.includes("amused") || lowerCase.includes("amusing")) {
     message.channel.send({ files: ["./Assets/notAmused.gif"] });
   }
 
@@ -382,7 +408,7 @@ bot.on("message", async (message) => {
       message.channel.send({ files: ["./Assets/kronk.gif"] })
   }
 
-  if (lowerCase.includes("angry") || lowerCase.includes(` mad `) || lowerCase.includes(`mad `) || lowerCase.includes(` mad`) || lowerCase.includes("triggered")) {
+  if (lowerCase.includes(prefix + "angry") || lowerCase.includes(prefix + "mad") || lowerCase.includes("triggered")) {
     message.channel.send("(╯°□°)╯︵ ┻━┻")
   }
 
@@ -406,11 +432,11 @@ bot.on("message", async (message) => {
     message.channel.send({files: ["./Assets/aou1.gif"]})
   }
 
-  if (lowerCase.includes("inspo") || lowerCase.includes("assimilate") || lowerCase.includes("assimilation")) {
+  if (lowerCase.includes(prefix + "inspo") || lowerCase.includes("assimilate") || lowerCase.includes("assimilation")) {
     message.channel.send({files: ["./Assets/aou3.gif"]})
   }
 
-  if (lowerCase.includes("sad") || lowerCase.includes("disappoint")) {
+  if (lowerCase.includes("disappoint")) {
     message.channel.send({files: ["./Assets/aou5.gif"]})
   }
 
