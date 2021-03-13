@@ -221,8 +221,8 @@ bot.on("message", async (message) => {
     lowerCase.includes(prefix + "test")
   ) {
     key = "sexy"
-    console.log(key);
-    console.log(sample);
+    console.log("Key:", key);
+    console.log("Sample:", sample);
     if (message.author.bot) {
       return;
     } else {
