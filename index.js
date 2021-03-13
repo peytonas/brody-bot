@@ -16,7 +16,7 @@ let _randomGifApi = axios.create({
 })
 
 let _testGifApi = axios.create({
-  baseURL: baseURL + tag
+  baseURL: `https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=${key}&rating=r`
 })
 
 let _hotGifApi = axios.create({
