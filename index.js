@@ -8,7 +8,7 @@ const token = process.env.BOT_TOKEN;
 
 let key = ""
 let baseURL = "https://api.giphy.com/v1/gifs/"
-let tag = "random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=" + key + "&rating=r";
+let tag = `random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag= + ${key} + &rating=r`;
 let sample = baseURL + tag
 
 let _randomGifApi = axios.create({
