@@ -220,7 +220,7 @@ bot.on("message", async (message) => {
     lowerCase.includes(prefix + "test")
   ) {
     key = "test"
-    console.log(tag);
+    console.log(key);
     if (message.author.bot) {
       return;
     } else {
