@@ -9,6 +9,7 @@ const token = process.env.BOT_TOKEN;
 let key = ""
 let baseURL = "https://api.giphy.com/v1/gifs/"
 let tag = "random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=" + key + "&rating=r";
+let sample = baseURL + tag
 
 let _randomGifApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=&rating=r"
@@ -221,6 +222,7 @@ bot.on("message", async (message) => {
   ) {
     key = "test"
     console.log(key);
+    console.log(sample);
     if (message.author.bot) {
       return;
     } else {
