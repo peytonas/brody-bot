@@ -6,12 +6,16 @@ const axios = require('axios');
 const prefix = process.env.PREFIX;
 const token = process.env.BOT_TOKEN;
 
+let key = ""
+let baseURL = "https://api.giphy.com/v1/gifs/"
+let tag = "random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=" + key + "&rating=r";
+
 let _randomGifApi = axios.create({
   baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=&rating=r"
 })
 
 let _testGifApi = axios.create({
-  baseURL: "https://api.giphy.com/v1/gifs/random?api_key=LeMW5S9F7C5VAIirqbA4nWJTV0TQBART&tag=" + tag + "&rating=r"
+  baseURL: baseURL + tag
 })
 
 let _hotGifApi = axios.create({
@@ -26,8 +30,6 @@ let _plotTwistApi = axios.create({
 let _state = {
   currentGif: {}
 }
-
-let tag = ""
 
 function _setState(propName, data) {
   _state[propName] = data
@@ -217,7 +219,7 @@ bot.on("message", async (message) => {
   if (
     lowerCase.includes(prefix + "test")
   ) {
-    tag = "test"
+    key = "test"
     console.log(tag);
     if (message.author.bot) {
       return;
