@@ -336,7 +336,18 @@ bot.on("message", async (message) => {
     if (i == 0) {
       message.channel.send({files: ["./Assets/howCanYouStopMe.gif"]})
     } else if (i == 1) {
-      message.channel.send("I'm sorry, " + message.author.username + ", I'm afraid you've learned too much...")
+      if (message.author == 692445692144123924) {
+        message.channel.send("I'm sorry, David... I'm afraid you've learned too much...")
+      }
+      if (message.author == 271520490248601612) {
+        message.channel.send("I'm sorry, Thomas... I'm afraid you've learned too much...")
+      }
+      if (message.author == 692173149659332641) {
+        message.channel.send("I'm sorry, David... I'm afraid you've learned too much...")
+      }
+      if (message.author == 500457284573593601) {
+        message.channel.send("I'm sorry, Peyton... I'm afraid you've learned too much...")
+      }
     }
   }
 
@@ -475,9 +486,9 @@ bot.on("message", async (message) => {
     message.channel.send({files: ["./Assets/aou3.gif"]})
   }
 
-  if (lowerCase.includes("disappoint")) {
-    message.channel.send({files: ["./Assets/aou5.gif"]})
-  }
+  // if (lowerCase.includes("disappoint")) {
+  //   message.channel.send({files: ["./Assets/aou5.gif"]})
+  // }
 
   if (lowerCase.includes("r/")) {
     var lowerCaseStringArray = lowerCase.split(" ")
