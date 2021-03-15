@@ -248,6 +248,41 @@ bot.on("message", async (message) => {
     }
   }
 
+  if (lowerCase.includes(prefix + "rt")) {
+    if (message.author.bot) {
+      return;
+    } else {
+      message.channel.send({files: ["./Assets/DKRT.gif"]})
+  }
+  }
+
+  if (lowerCase.includes(prefix + "what") || lowerCase.includes(prefix + "nani")) {
+    if (message.author.bot) {
+      return;
+    } else {
+      message.channel.send({files: ["./Assets/NANI.gif"]})
+  }
+  }
+
+  if (lowerCase.includes(prefix + "sleep")) {
+    if (message.author.bot) {
+      return;
+    } else {
+      setTimeout(function () {
+        message.channel.send({files: ["./Assets/NSTB1.gif"]})
+      }, 500);
+      setTimeout(function () {
+        message.channel.send({files: ["./Assets/NSTB2.gif"]})
+      }, 500);
+      setTimeout(function () {
+        message.channel.send({files: ["./Assets/NSTB3.gif"]})
+      }, 500);
+      setTimeout(function () {
+        message.channel.send({files: ["./Assets/NSTB4.gif"]})
+      }, 500);
+  }
+  }
+
   if (lowerCase.includes(prefix + "plot twist")) {
     getPlotTwistGif();
     setTimeout(function () {
